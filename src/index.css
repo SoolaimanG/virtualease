@@ -23,11 +23,12 @@ html {
   --color-blue-primary: #0012e6;
   --color-blue-secondary: #000c99;
   --color-blue-light: #3343ff;
-  --color-blue-ver-light: #ccd0ff;
+  --color-blue-very-light: #ccd0ff;
   --color-grey: #e6e6e6;
   --color-white: #ffffff;
   --color-black: #252525;
   --color-grey-dark: #bebebe;
+  --color-darkest: #989898;
 }
 
 .p-s {
@@ -65,14 +66,11 @@ section > h2 {
   font-size: 1.9rem;
   font-weight: 600;
   color: var(--color-black);
+  text-align: center;
 }
 
 /* ====================MEDIA QUERY====================== */
 @media (max-width: 767px) {
-  section {
-    height: 80vh;
-  }
-
   section > h2 {
     font-size: 1.5rem;
   }

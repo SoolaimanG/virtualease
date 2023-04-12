@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "./logo";
 import { RiMenu3Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
@@ -14,16 +14,16 @@ const NavBar = () => {
           <div>
             <ul className="nav_ul">
               <li>
-                <a href="/">Home</a>
+                <a href="#home">Home</a>
               </li>
               <li>
-                <a href="/">About</a>
+                <a href="#whyUs">Why Us</a>
               </li>
               <li>
-                <a href="/">Testimonials</a>
+                <a href="#testimonial">Testimonials</a>
               </li>
               <li>
-                <a href="/">Contact</a>
+                <a href="#pricing">Pricing</a>
               </li>
             </ul>
           </div>
@@ -33,11 +33,7 @@ const NavBar = () => {
           <div className="nav_cta_btn">
             <div className="btn_align">
               <button className="btn-outline signIn">SignIn</button>
-              <button
-                className={`btn-fill ${true ? "signOut_changed" : "signOut"}`}
-              >
-                SignUp
-              </button>
+              <button className="btn-fill signOut">SignUp</button>
             </div>
           </div>
         </div>
@@ -65,16 +61,16 @@ const NavBar = () => {
             >
               <ul>
                 <li>
-                  <a href="">Home</a>
+                  <a href="#home">Home</a>
                 </li>
                 <li>
-                  <a href="">About</a>
+                  <a href="#whyUs">Why Us</a>
                 </li>
                 <li>
-                  <a href="">Testimonial</a>
+                  <a href="#testimonial">Testimonials</a>
                 </li>
                 <li>
-                  <a href="">Contact Us</a>
+                  <a href="#pricing">Pricing</a>
                 </li>
               </ul>
               <div className="btn-align-sm">

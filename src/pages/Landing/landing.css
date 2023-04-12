@@ -1,10 +1,5 @@
 .hero_section {
-  height: 100vh;
   width: 100vw;
-  background: url("../../assets/virtaualEase-hero-bg.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   color: var(--color-white);
 }
 
@@ -15,6 +10,7 @@
   background: var(--color-white);
   box-shadow: 3.5px 2.5px 10px 3px #0012e6;
   color: var(--color-black);
+  z-index: 10;
 }
 
 .navBar_one {
@@ -112,6 +108,14 @@
 }
 
 /* =================LANDING HOME=================== */
+.landing_home {
+  background: url("../../assets/virtaualEase-hero-bg.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 .landing_home_one {
   padding-top: 10rem;
   width: 100%;
@@ -119,7 +123,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .landing_home_one h2 {
@@ -169,13 +173,268 @@
 /* ==============================VIDEO SECTION============================== */
 .video_section {
   width: 100%;
-  height: 50vh;
+  height: auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.video_embedded {
+  border: 10px solid var(--color-blue-light);
+  box-shadow: 0px 12px 46px -11px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 12px 46px -11px rgba(0, 0, 0, 0.5);
+}
+
+.video_vpnLogs {
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-blue-primary);
+  margin-top: 1.3rem;
+  width: 50%;
+}
+
+/* =========================WHYUS================================== */
+#whyUs {
+  background: var(--color-blue-very-light);
+  height: auto !important;
+}
+
+.whyUs_container {
+  color: var(--color-blue-secondary);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whyUs_header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.whyUs_one {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1.3rem;
+  margin-top: 2rem;
+}
+
+.whyUs_two {
+  background: var(--color-white);
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--color-black);
+  transition: all 500ms;
+  cursor: pointer;
+}
+
+.whyUs_two:hover {
+  transform: translateY(-3px);
+}
+
+.whyUs_two img {
+  width: 15%;
+}
+
+.whyUs_two p {
+  font-weight: 400;
+}
+
+/* ============================TESTIMONIALS============================= */
+#testimonials {
+  color: var(--color-blue-secondary);
+  text-align: center;
+  height: auto !important;
+}
+
+.testimonial_container {
+  margin-top: 3rem;
+}
+
+.testimonial_one {
+  width: 20rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow-y: hidden;
+  height: 30rem;
+  cursor: pointer;
+  border: 0.9px solid var(--color-blue-light);
+  color: var(--color-white);
+}
+
+.testimonial_one img {
+  width: 100%;
+  border-radius: inherit;
+  height: 100%;
+}
+
+.testimonial_gradient {
+  position: absolute;
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  background: -webkit-linear-gradient(
+    0deg,
+    #252524 0%,
+    rgba(245, 245, 245, 0) 100%
+  );
+  background: linear-gradient(0deg, #25252438 0%, rgba(245, 245, 245, 0) 100%);
+  width: 100%;
+  height: 100%;
+}
+
+.testimonial_two {
+  position: absolute;
+  bottom: 0;
+  padding: 0.5rem;
+  transform: translateY(240px);
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  flex-direction: column;
+  transition: all 500ms ease-in-out;
+  height: 20rem;
+}
+
+.testimonial_two h4,
+.testimonial_two p {
+  font-weight: 400;
+  text-align: left;
+}
+
+.testimonial_one:hover .testimonial_two {
+  transform: translateY(0px);
+}
+
+/* =========================PRICING============================= */
+#pricing {
+  background: var(--color-grey);
+  height: auto;
+  padding: 2rem 0;
+}
+
+#pricing p {
+  color: var(--color-blue-secondary);
+  text-align: center;
+}
+
+.pricing_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing_one {
+  width: 20rem;
+  height: 30rem;
+  color: var(--color-darkest);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  text-align: center;
+  padding: 0rem 1rem;
+}
+
+.pricing_one h3 {
+  color: var(--color-black);
+  font-weight: 900;
+}
+
+.pricing_one > h3 > small {
+  font-weight: 500;
+  color: var(--color-blue-primary);
+  font-size: 0.9rem;
+}
+
+.pricing_one:nth-child(1) {
+  background: url("../../assets/blob-haikei\ \(2\).png");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pricing_one:nth-child(2) {
+  background: url("../../assets/blob-haikei\ \(1\).png");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pricing_one:nth-child(3) {
+  background: url("../../assets/blob-haikei.png");
+  background-position: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pricing_btn {
+  transition: all 500ms;
+  cursor: pointer;
+}
+
+.pricing_btn:hover {
+  background: var(--color-blue-secondary);
+  transform: translateY(-5px);
+  color: var(--color-grey);
+}
+
+/* ===========================FOOTER============================= */
+.footer {
+  background: var(--color-blue-light);
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_footer {
+  display: flex;
+  width: 20rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer_container > ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer_container > ul > li > a {
+  color: var(--color-grey);
+}
+
+.footer_container > ul > li > a:hover {
+  color: var(--color-white);
+}
+
+.copyrights {
+  width: 100%;
+  text-align: right;
 }
 
 /* ===========================MEDIA QUERIES============================== */
 @media (max-width: 900px) and (min-width: 767px) {
+  .landing_home {
+    height: 100vh;
+  }
+
   .landing_home_one {
-    padding-top: 4rem;
+    padding-top: 9rem;
   }
 
   .landing_home_one p {
@@ -196,6 +455,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.8rem 1.1rem;
+    background-color: var(--color-white);
+    width: 100%;
+    position: fixed;
+    color: var(--color-black);
+    box-shadow: 3.5px 2.5px 10px 3px #0012e6;
+    z-index: 10;
   }
 
   .nav-md-sm_one svg {
@@ -287,13 +552,18 @@
 
 /* MOBILE */
 @media (max-width: 767px) {
-  .hero_section {
+  .landing_home {
+    background: url("../../assets/virtaualEase-hero-bg.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: auto;
     padding-bottom: 2rem;
   }
 
   .landing_home_one {
-    padding-top: 4rem;
+    padding-top: 7rem;
+    gap: 2rem;
   }
 
   .landing_home_one p {
@@ -314,6 +584,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.8rem 1.1rem;
+    background-color: var(--color-white);
+    width: 100%;
+    position: fixed;
+    color: var(--color-black);
+    box-shadow: 3.5px 2px 6px 3px #0012e6;
+    z-index: 10;
   }
 
   .nav-md-sm_one svg {
@@ -404,5 +680,42 @@
 
   .detailed-info-short {
     flex-direction: column;
+  }
+
+  /*=======================VIDEO=================================  */
+  .video_section {
+    flex-direction: column;
+  }
+
+  .video_vpnLogs {
+    width: 90%;
+  }
+
+  .video_vpnLogs h2 {
+    font-size: 1.35rem;
+  }
+
+  /* =========================WHYUS============================= */
+  .whyUs_one {
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  }
+
+  /* ==========================TESTIMONIAL========================= */
+  #testimonials {
+    height: auto !important;
+  }
+
+  /* =========================FOOTER============================= */
+  .footer_container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer_container > ul {
+    flex-direction: column;
+  }
+
+  .copyrights {
+    text-align: center;
   }
 }
