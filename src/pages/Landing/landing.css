@@ -427,6 +427,29 @@
   text-align: right;
 }
 
+/* ============================LOADER=================================== */
+.spinner_container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #0012e6);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-zp9dbg 1.2s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 /* ===========================MEDIA QUERIES============================== */
 @media (max-width: 900px) and (min-width: 767px) {
   .landing_home {

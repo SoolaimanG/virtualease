@@ -2,6 +2,23 @@ import { useState } from "react";
 import Logo from "./logo";
 import { RiMenu3Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
+//SignUp Component
+export const SignUpBTN = () => {
+  //Using UseNavigate
+  const navigate = useNavigate();
+
+  //Function to navigate
+  const navigate2SignUp = () => {
+    navigate("/signup");
+  };
+  return (
+    <button onClick={navigate2SignUp} className="btn-fill signOut">
+      SignUp
+    </button>
+  );
+};
 
 const NavBar = () => {
   //All useStates
@@ -33,7 +50,7 @@ const NavBar = () => {
           <div className="nav_cta_btn">
             <div className="btn_align">
               <button className="btn-outline signIn">SignIn</button>
-              <button className="btn-fill signOut">SignUp</button>
+              <SignUpBTN />
             </div>
           </div>
         </div>
@@ -75,7 +92,7 @@ const NavBar = () => {
               </ul>
               <div className="btn-align-sm">
                 <button className="signIn-sm">SignIn</button>
-                <button className="btn-fill signOut-sm">SignUp</button>
+                <SignUpBTN />
               </div>
             </div>
           </div>
