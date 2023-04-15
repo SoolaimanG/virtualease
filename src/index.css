@@ -29,6 +29,7 @@ html {
   --color-black: #252525;
   --color-grey-dark: #bebebe;
   --color-darkest: #989898;
+  --color-red: #ff0000;
 }
 
 .p-s {
@@ -48,6 +49,7 @@ html {
   background: var(--color-blue-light);
   padding: 10px 23px;
   color: var(--color-white);
+  cursor: pointer;
 }
 
 .btn-outline {
@@ -55,6 +57,7 @@ html {
   border: 0.8px solid var(--color-blue-primary);
   color: var(--color-blue-light);
   padding: 8px 20px;
+  cursor: pointer;
 }
 
 section > h2 {

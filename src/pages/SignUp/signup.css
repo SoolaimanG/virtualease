@@ -2,33 +2,49 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .signUp_container {
-  width: 100%;
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.signUp_header p {
+  color: var(--color-blue-secondary);
+  font-size: 0.9rem;
+  text-align: left;
 }
 
 .signUp_one {
   flex-basis: 50%;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .signUp_one_one {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  height: 100%;
+  margin: 2rem 0rem;
 }
 
 .signUp_one_three {
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
+  padding: 0rem 1.5rem;
+}
+
+.signUp_header p {
+  margin-top: 0.5rem;
 }
 
 .signUp_two {
-  flex-basis: 50%;
   background: var(--color-blue-secondary);
   color: var(--color-white);
 }
@@ -84,34 +100,40 @@
 }
 
 .signUp_form {
-  margin-top: 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.3rem;
+  margin: auto;
 }
 
-.signUp_wrapper {
+.signUp_form p {
+  color: var(--color-red);
+  font-size: 0.8rem;
+}
+
+.signUp_password {
+  width: 100%;
   position: relative;
-  width: 100%;
 }
 
-.signUp_wrapper label {
-  font-size: 0.9rem;
-  color: var(--color-grey-dark);
-  transition: all 500ms;
+.signUp_password svg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-blue-primary);
 }
 
-.signUp_wrapper input {
+.signUp_input {
   all: unset;
-  width: 100%;
   height: 1.8rem;
-  padding-left: 1rem;
-  border-radius: 5px;
   border-bottom: 1.5px solid var(--color-black);
+  width: 100%;
 }
 
-.signUp_wrapper input:focus {
+.signUp_input:focus {
   border-bottom: 1.5px solid var(--color-blue-primary);
 }
 
@@ -123,13 +145,51 @@
 
 .TC p {
   font-size: 0.7rem;
+  color: var(--color-blue-secondary);
+  cursor: pointer;
+  text-decoration: underline !important;
+}
+
+.termandcondition {
+  height: 100%;
+  overflow-y: scroll;
+  width: 30rem;
+}
+
+.termandcondition h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.termandcondition h2 {
+  margin-top: 1rem;
+}
+
+.termandcondition p {
+  font-size: 0.9rem;
+}
+
+.termandcondition ul > li {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.acceptBtn {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .signUp_submit {
+  all: unset;
+  padding: 10px 0px;
+  text-align: center;
+  color: var(--color-white);
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--color-blue-primary);
+  cursor: pointer;
 }
 
 .signUp_submit:disabled {
@@ -137,40 +197,115 @@
   cursor: not-allowed;
 }
 
+.PhoneInputInput {
+  all: unset;
+  width: 35rem;
+  height: 1.8rem;
+  padding-left: 1rem;
+  border-bottom: 1.5px solid var(--color-black);
+}
+
+.PhoneInputInput:focus {
+  border-bottom: 1.5px solid var(--color-blue-primary);
+}
+
 /* =====================MEDIA QUERY======================= */
+
+@media (max-width: 900px) {
+  .signUp_one_one {
+    margin: 4rem 0rem;
+  }
+}
+
 @media (max-width: 767px) {
   .signUp_container {
+    display: flex;
     flex-direction: column-reverse;
+    overflow-y: scroll;
   }
 
   .signUp_one {
-    flex-basis: 80%;
+    width: 100%;
+    flex-basis: 70%;
+  }
+
+  .signUp_one_one {
+    margin: 2rem 0rem;
+  }
+
+  .signUp_one_three {
+    padding-top: 1rem;
   }
 
   .signUp_two {
     flex-basis: 30%;
   }
 
-  .signUp_two_one {
-    padding: 0 0rem;
-    justify-content: center;
+  .signUp_header p {
+    margin-top: 0rem;
+  }
+
+  .signUp_header h2,
+  .signUp_header p {
+    text-align: left;
+  }
+
+  .signUp_header p {
+    font-size: 1rem;
   }
 
   .signUp_two_two p {
     display: none;
   }
 
-  .signUp_two_two h2 {
-    font-size: 1.7rem;
-    font-weight: 500;
+  .signUp_two_one {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  .signUp_form {
+    gap: 1.3rem;
+  }
+
   .backToPrevious {
     background: var(--color-white);
     color: var(--color-blue-secondary);
+  }
+
+  .termandcondition {
+    width: 17rem;
+  }
+
+  .termandcondition h1 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 320px) {
+  .signUp_header h2 {
+    font-size: 1.1rem;
+  }
+
+  .signUp_header p {
+    font-size: 0.7rem;
+  }
+
+  .TC p {
+    font-size: 0.5rem;
+  }
+
+  .PhoneInputInput::placeholder,
+  .signUp_input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .signUp_form {
+    gap: 0.9rem;
+  }
+
+  .termandcondition {
+    width: 14rem;
   }
 }
