@@ -185,9 +185,11 @@
 .signUp_submit {
   all: unset;
   padding: 10px 0px;
-  text-align: center;
   color: var(--color-white);
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-blue-primary);
   cursor: pointer;
 }
@@ -207,6 +209,28 @@
 
 .PhoneInputInput:focus {
   border-bottom: 1.5px solid var(--color-blue-primary);
+}
+
+.redirectingTo,
+.acctExist {
+  text-align: center;
+}
+
+/* =====================MINILOADER======================== */
+.mini-spinner {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 9px solid;
+  border-color: #8891f5;
+  border-right-color: #bebebe;
+  animation: spinner-d3wgkg1 1s infinite linear;
+}
+
+@keyframes spinner-d3wgkg1 {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 /* =====================MEDIA QUERY======================= */
