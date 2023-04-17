@@ -13,6 +13,7 @@ import Loader from "../../components/loader";
 import MiniLoader from "../../components/miniLoader";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { motion } from "framer-motion";
 
 export const BackToPrevious = () => {
   //Using UseNavigate
@@ -101,8 +102,7 @@ const SignUp = () => {
     }
   }, [acctExist, redirectTo]);
 
-  console.log(acctExist);
-
+  //SignUp Users
   const signUpUser = (e) => {
     e.preventDefault();
     setSigningUp(true);
@@ -124,8 +124,9 @@ const SignUp = () => {
         await setDoc(doc(db, "acctSettings", uid), {
           liveNotifications: false,
           loginNotification: false,
-          loginJustThisDevice: false,
-          ipAddress: "",
+          loginJustThisLocation: false,
+          termsAndConditions: true,
+          geoLocation: null,
         });
 
         //Setting Up User Transactions
@@ -146,7 +147,16 @@ const SignUp = () => {
       {loadings ? (
         <Loader />
       ) : (
-        <div className="signUp">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 0, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className="signUp"
+        >
           <div className="signUp_container">
             <div className="signUp_one">
               <div className="signUp_one_one">
@@ -292,7 +302,7 @@ const SignUp = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

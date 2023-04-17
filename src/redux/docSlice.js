@@ -1,17 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: "Soolaiman",
+  uid: JSON.parse(localStorage.getItem("uid")) || "",
 };
 
 export const docSlice = createSlice({
   name: "virtualease",
   initialState,
-  reducers: {},
+  reducers: {
+    updateUid: (state, action) => {
+      state.uid = action.payload;
+    },
+  },
 });
 
 export const selectAll = (state) => state.doc;
 
-export const {} = docSlice.actions;
+export const { updateUid } = docSlice.actions;
 
 export default docSlice.reducer;

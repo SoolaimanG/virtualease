@@ -3,6 +3,7 @@ import Logo from "./logo";
 import { RiMenu3Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import SignInModal from "../signInModal";
 
 //SignUp Component
 export const SignUpBTN = () => {
@@ -49,7 +50,7 @@ const NavBar = () => {
           </div>
           <div className="nav_cta_btn">
             <div className="btn_align">
-              <button className="btn-outline signIn">SignIn</button>
+              <SignInModal />
               <SignUpBTN />
             </div>
           </div>
