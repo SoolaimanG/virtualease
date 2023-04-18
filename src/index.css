@@ -30,6 +30,8 @@ html {
   --color-grey-dark: #bebebe;
   --color-darkest: #989898;
   --color-red: #ff0000;
+  --color-light-black: #666666;
+  --color-success: #38ff33;
 }
 
 .p-s {

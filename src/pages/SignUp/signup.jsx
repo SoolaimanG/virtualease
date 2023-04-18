@@ -57,6 +57,7 @@ const SignUp = () => {
   const [signingUp, setSigningUp] = useState(false);
   const [acctExist, setAcctExist] = useState(false);
   const [redirectTo, setRedirectTo] = useState(10);
+  const [acctCreated, setAcctCreated] = useState(false);
 
   //Condtions for the form control
   useEffect(() => {
@@ -109,6 +110,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
+        setAcctCreated(user);
         const { uid } = user;
         setSigningUp(false);
 
@@ -118,6 +120,7 @@ const SignUp = () => {
           phoneNumber: value,
           photoURL: "",
           currentPassword: password,
+          firstTimeLogin: true,
         });
 
         //Setting Up The User Settings
@@ -130,15 +133,16 @@ const SignUp = () => {
         });
 
         //Setting Up User Transactions
-        await setDoc(doc(db, "userTransaction", uid), {
+        await setDoc(doc(db, "userActivities", uid), {
           transactions: [],
+          cart: [],
         });
       })
       .catch((error) => {
         const errorCode = error.code;
         setAcctExist(errorCode === "auth/email-already-in-use");
         setSigningUp(false);
-        // ..
+        setAcctCreated(false);
       });
   };
 
@@ -283,6 +287,11 @@ const SignUp = () => {
                     >
                       {signingUp ? <MiniLoader /> : "Sign Up"}
                     </button>
+                    <p id="acctCreated">
+                      {acctCreated
+                        ? "Your Account has been created, Proceed to login"
+                        : ""}
+                    </p>
                   </form>
                 </div>
               </div>

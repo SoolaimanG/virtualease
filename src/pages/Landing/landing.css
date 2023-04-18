@@ -119,12 +119,12 @@
 .landing_home_one {
   padding-top: 10rem;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: auto;
-  gap: 2.5rem;
+  gap: 3.2rem;
 }
 
 .landing_home_one h2 {

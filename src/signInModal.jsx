@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 import { AiFillEyeInvisible, AiFillEye, AiOutlineCheck } from "react-icons/ai";
 import { FiAtSign } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { SignInwithGoogle } from "./components/signInOptions";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "./firebase";
+import {
+  SignInWithEmailAndPassword,
+  SignInwithGoogle,
+} from "./components/signInOptions";
 
 const style = {
   position: "absolute",
@@ -33,6 +34,9 @@ export default function SignInModal() {
   const [open, setOpen] = useState(false);
   const [emailCheck, setEmailCheck] = useState(false);
   const [view, setView] = useState(false);
+  const [popUpClose, setPopUpClose] = useState(false);
+  const [acctDoesNotExist, setAcctDoesNotExist] = useState(false);
+  const [wrongPassword, setWrongPassword] = useState(false);
 
   //Modal Funcs
   const handleOpen = () => setOpen(true);
@@ -88,14 +92,16 @@ export default function SignInModal() {
                 </div>
               </div>
               <div className="signInwithThirdPartyBtn">
-                <SignInwithGoogle />
+                <SignInwithGoogle setPopUpClose={setPopUpClose} />
+                <p>{popUpClose ? "PopUp is closed by user" : ""}</p>
               </div>
+
               <div className="signInOr">
                 <div></div>
                 <p>or</p>
                 <div></div>
               </div>
-              <form className="signIn_form" action="">
+              <div className="signIn_form" action="">
                 <div className="signIn_input">
                   <input
                     value={email}
@@ -128,10 +134,24 @@ export default function SignInModal() {
                   </div>
                 </div>
                 <Link className="signIn_forgetPassword">Forget Password?</Link>
-                <button disabled={!emailCheck} className="signIn_submit">
-                  Sign In
-                </button>
-              </form>
+                <div className="signUpwithEmail_container">
+                  <SignInWithEmailAndPassword
+                    emailCheck={emailCheck}
+                    email={email}
+                    password={password}
+                    setAcctDoesNotExist={setAcctDoesNotExist}
+                    setWrongPassword={setWrongPassword}
+                  />
+                  <p>
+                    {acctDoesNotExist &&
+                      "Seems you don't have an account with us"}
+                  </p>
+                  <p>
+                    {wrongPassword &&
+                      "The Password you input is not corresponding"}
+                  </p>
+                </div>
+              </div>
               <p className="idonthaveanAcct">
                 Don't have an account yet?
                 <Link to={"/signUp"}>Create Account.</Link>

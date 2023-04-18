@@ -270,6 +270,7 @@
 .signInwithThirdPartyBtn {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -294,6 +295,16 @@
   background: var(--color-black);
   color: var(--color-white);
   border: 1.5px solid var(--color-white);
+}
+
+.signInwithThirdPartyBtn button:disabled {
+  background: var(--color-light-black);
+}
+
+.signInwithThirdPartyBtn p {
+  color: var(--color-red);
+  text-align: center;
+  font-size: 0.8rem;
 }
 
 .signInwithThirdPartyBtn svg {
@@ -378,6 +389,25 @@
 .signIn_submit:disabled {
   background: var(--color-blue-secondary);
   cursor: not-allowed;
+}
+
+.signUpwithEmail_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.signUpwithEmail_container p {
+  color: var(--color-red);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+#acctCreated {
+  text-align: center;
+  width: 100%;
+  color: var(--color-success);
 }
 
 .idonthaveanAcct {
