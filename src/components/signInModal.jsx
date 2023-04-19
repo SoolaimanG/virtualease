@@ -2,15 +2,12 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Logo from "./components/logo";
+import Logo from "./logo";
 import { useEffect, useState } from "react";
 import { AiFillEyeInvisible, AiFillEye, AiOutlineCheck } from "react-icons/ai";
 import { FiAtSign } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import {
-  SignInWithEmailAndPassword,
-  SignInwithGoogle,
-} from "./components/signInOptions";
+import { SignInWithEmailAndPassword, SignInwithGoogle } from "./signInOptions";
 
 const style = {
   position: "absolute",
@@ -24,7 +21,7 @@ const style = {
   borderRadius: "10px",
 };
 
-export default function SignInModal() {
+export default function SignInModal({ className, name }) {
   //Email Reggex
   const EmailReggex = /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
 
@@ -65,8 +62,8 @@ export default function SignInModal() {
 
   return (
     <div>
-      <button onClick={handleOpen} className="btn-outline signIn">
-        SignIn
+      <button onClick={handleOpen} className={className}>
+        {name}
       </button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -133,7 +130,9 @@ export default function SignInModal() {
                     )}
                   </div>
                 </div>
-                <Link className="signIn_forgetPassword">Forget Password?</Link>
+                <Link to={"/forgetpassword"} className="signIn_forgetPassword">
+                  Forget Password?
+                </Link>
                 <div className="signUpwithEmail_container">
                   <SignInWithEmailAndPassword
                     emailCheck={emailCheck}

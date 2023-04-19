@@ -15,13 +15,13 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion } from "framer-motion";
 
-export const BackToPrevious = () => {
+export const BackToPrevious = ({ to }) => {
   //Using UseNavigate
   const navigate = useNavigate();
   return (
     <div
       onClick={() => {
-        navigate("/");
+        navigate(to);
       }}
       className="backToPrevious"
     >
@@ -164,7 +164,7 @@ const SignUp = () => {
           <div className="signUp_container">
             <div className="signUp_one">
               <div className="signUp_one_one">
-                <BackToPrevious />
+                <BackToPrevious to={"/"} />
                 <div className="signUp_one_three">
                   <div className="signUp_header">
                     <h2>Create an account.</h2>

@@ -69,6 +69,10 @@ section > h2 {
   text-align: center;
 }
 
+:link {
+  cursor: pointer;
+}
+
 /* ====================MEDIA QUERY====================== */
 @media (max-width: 767px) {
   section > h2 {

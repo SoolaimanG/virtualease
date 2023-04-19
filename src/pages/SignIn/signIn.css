@@ -1,0 +1,99 @@
+.signInPage_container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.signInPage_wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.signInPageform {
+  width: 100%;
+  height: 100%;
+  flex-basis: 40%;
+  padding: 1.2rem;
+}
+
+.signInPage_one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.p_one {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: var(--color-blue-secondary);
+}
+
+.signInPage_input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.signInPageForm_container {
+  width: 100%;
+  position: relative;
+  border: 1.5px solid var(--color-black);
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.signInBg {
+  flex-basis: 60%;
+  width: 100%;
+  background: url("../../assets/signInBg.png");
+  background-size: cover;
+  height: 100%;
+}
+
+/* ==========================MEDIA QUERY========================== */
+@media (max-width: 1000px) {
+  .signInPageform {
+    flex-basis: 45%;
+  }
+
+  .signInBg {
+    flex-basis: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  .signInPageform {
+    margin-top: 2.5rem;
+  }
+
+  .signInPage_one {
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+  }
+
+  .signInPage_wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .signInPageform {
+    flex-basis: 80%;
+  }
+
+  .signInBg {
+    flex-basis: 20%;
+    width: 100%;
+    background: url("../../assets/signInBg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+}

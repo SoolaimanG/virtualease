@@ -13,6 +13,7 @@ import Loader from "../../components/loader";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import { GetStarted } from "../../components/signInOptions";
 
 const Landing = () => {
   const year = new Date().getFullYear();
@@ -22,7 +23,7 @@ const Landing = () => {
     const randomSec = [
       1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000,
     ];
-    const random = Math.floor(Math.random() * randomSec.length) + 1;
+    const random = Math.floor(Math.random() * randomSec.length);
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -55,7 +56,7 @@ const Landing = () => {
                   fast and easy privacy and communication. Contact us with any
                   questions. Thank you for choosing us!
                 </p>
-                <button className="btn-fill getStarted">Get Started</button>
+                <GetStarted />
                 <div className="detailed-info-short">
                   <small>
                     <FaLock />

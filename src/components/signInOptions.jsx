@@ -8,7 +8,9 @@ import { auth } from "../firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import MiniLoader from "./miniLoader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import SignInModal from "./signInModal";
+import { Link } from "react-router-dom";
 
 export const SignInwithGoogle = ({ setPopUpClose }) => {
   //Loading Effect
@@ -110,5 +112,38 @@ export const SignInWithEmailAndPassword = ({
     >
       {loading ? <MiniLoader /> : " Sign In"}
     </button>
+  );
+};
+
+export const GetStarted = () => {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        setMobile(false);
+      } else {
+        setMobile(true);
+      }
+    });
+
+    return () => {
+      window.removeEventListener("resize", () => {
+        console.log("Mobile");
+      });
+    };
+  }, []);
+
+  console.log(mobile);
+
+  return (
+    <>
+      {!mobile ? (
+        <SignInModal className={"btn-fill getStarted"} name={"Get Started"} />
+      ) : (
+        <Link to={"/signin"} className="btn-fill getStarted">
+          Get Started
+        </Link>
+      )}
+    </>
   );
 };

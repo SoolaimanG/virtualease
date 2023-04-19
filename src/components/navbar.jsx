@@ -2,8 +2,8 @@ import { useState } from "react";
 import Logo from "./logo";
 import { RiMenu3Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-import SignInModal from "../signInModal";
+import { useNavigate, Link } from "react-router-dom";
+import SignInModal from "./signInModal";
 
 //SignUp Component
 export const SignUpBTN = () => {
@@ -50,7 +50,7 @@ const NavBar = () => {
           </div>
           <div className="nav_cta_btn">
             <div className="btn_align">
-              <SignInModal />
+              <SignInModal className={"btn-outline signIn"} name={"Sign In"} />
               <SignUpBTN />
             </div>
           </div>
@@ -92,7 +92,9 @@ const NavBar = () => {
                 </li>
               </ul>
               <div className="btn-align-sm">
-                <button className="signIn-sm">SignIn</button>
+                <Link to={"/signin"} className="signIn-sm">
+                  SignIn
+                </Link>
                 <SignUpBTN />
               </div>
             </div>
