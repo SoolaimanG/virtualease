@@ -9,8 +9,10 @@ import {
 } from "../../components/signInOptions";
 import { BackToPrevious } from "../SignUp/signup";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Loader from "../../components/loader";
+import { useDispatch } from "react-redux";
+import { LoginFunc, LogoutFunc } from "../../redux/docSlice";
 
 const SignIn = () => {
   //Email Reggex
@@ -26,6 +28,8 @@ const SignIn = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const dispatch = useDispatch();
+
   //Checking Email
   useEffect(() => {
     setEmailCheck(EmailReggex.test(email));
@@ -39,6 +43,8 @@ const SignIn = () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, randomSec[random]);
+
+    dispatch(LogoutFunc());
 
     return () => {
       clearTimeout(timer);

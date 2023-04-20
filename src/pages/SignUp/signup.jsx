@@ -1,7 +1,7 @@
 import "./signup.css";
 import Logo from "../../components/logo";
 import { BiArrowBack } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import "react-phone-number-input/style.css";
 import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
@@ -288,9 +288,10 @@ const SignUp = () => {
                       {signingUp ? <MiniLoader /> : "Sign Up"}
                     </button>
                     <p id="acctCreated">
-                      {acctCreated
-                        ? "Your Account has been created, Proceed to login"
-                        : ""}
+                      {acctCreated ? "Your Account has been created," : ""}{" "}
+                      {acctCreated && (
+                        <Link to={"/signin"}>Proceed to login</Link>
+                      )}
                     </p>
                   </form>
                 </div>

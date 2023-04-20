@@ -10,11 +10,15 @@ import { db } from "../firebase";
 import MiniLoader from "./miniLoader";
 import { useState, useEffect } from "react";
 import SignInModal from "./signInModal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { LoginFunc, LogoutFunc } from "../redux/docSlice";
 
 export const SignInwithGoogle = ({ setPopUpClose }) => {
   //Loading Effect
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //SignIn with Google
   const signInWithGoogle = async () => {
@@ -55,6 +59,10 @@ export const SignInwithGoogle = ({ setPopUpClose }) => {
 
         //Pause Loading
         setLoading(false);
+        dispatch(LoginFunc());
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -85,6 +93,8 @@ export const SignInWithEmailAndPassword = ({
   setWrongPassword,
 }) => {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   //SignInEmailAndPassword
   const signInWithEmail = (e) => {
     e.preventDefault();
@@ -94,6 +104,10 @@ export const SignInWithEmailAndPassword = ({
         // Signed in
         const user = userCredential.user;
         setLoading(!user);
+        dispatch(LoginFunc());
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
         // ...
       })
       .catch((error) => {

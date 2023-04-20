@@ -14,10 +14,13 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { GetStarted } from "../../components/signInOptions";
+import { useSelector } from "react-redux";
+import { selectAll } from "../../redux/docSlice";
 
 const Landing = () => {
   const year = new Date().getFullYear();
   const [loading, setLoading] = useState(true);
+  const login = useSelector(selectAll).login;
   //Setting Syncronous loading.
   useEffect(() => {
     const randomSec = [
@@ -28,6 +31,8 @@ const Landing = () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, randomSec[random]);
+
+    //sessionStorage.setItem("login", JSON.stringify(login));
 
     return () => {
       clearTimeout(timer);

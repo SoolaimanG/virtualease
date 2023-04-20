@@ -8,6 +8,10 @@ import Logo from "../../components/logo";
 import { BackToPrevious } from "../SignUp/signup";
 import Loader from "../../components/loader";
 import { motion } from "framer-motion";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../firebase";
+import Notify from "../../components/notify";
+import MiniLoader from "../../components/miniLoader";
 
 const Forgetpassword = () => {
   //Email Reggex
@@ -17,6 +21,9 @@ const Forgetpassword = () => {
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [state, setState] = useState("Success");
+  const [open, setOpen] = useState(false);
+  const [res, setRes] = useState(false);
 
   //Checking Email
   useEffect(() => {
@@ -47,6 +54,24 @@ const Forgetpassword = () => {
     };
   }, []);
 
+  //Reset Password
+  const resetPassword = async (e) => {
+    e.preventDefault();
+    setRes(true);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setState("Success");
+        setOpen(true);
+        setRes(false);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        setState("Error");
+        setOpen(true);
+        setRes(false);
+      });
+  };
+
   return (
     <>
       {loading ? (
@@ -63,6 +88,9 @@ const Forgetpassword = () => {
           className="forgetPassword_container"
         >
           <BackToPrevious to={"/signin"} />
+          <div className="notify_position">
+            <Notify setOpen={setOpen} open={open} state={state} />
+          </div>
           <div className="forgetPassword_wrapper">
             <div className="forgetPassword_one">
               <div className="forgetPassword_two">
@@ -83,8 +111,12 @@ const Forgetpassword = () => {
                       className="forgetPassword_input"
                       type="text"
                     />
-                    <button disabled={!emailCheck} className="btn-fill">
-                      Submit
+                    <button
+                      onClick={resetPassword}
+                      disabled={!emailCheck}
+                      className="btn-fill"
+                    >
+                      {res ? <MiniLoader /> : "Submit"}
                     </button>
                   </form>
                 </div>
