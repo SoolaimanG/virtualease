@@ -1,0 +1,143 @@
+.ref {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ref_one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.ref_two {
+  flex-basis: 40%;
+}
+
+.ref_two_one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref_two_one > p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.ref_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ref_input {
+  all: unset;
+  border-bottom: 1.5px solid var(--color-blue-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.2rem 1rem;
+  caret-color: var(--color-blue-primary);
+  color: var(--color-blue-primary);
+}
+
+.ref_btn:disabled {
+  cursor: not-allowed;
+  background: var(--color-blue-secondary);
+}
+
+.ref_com {
+  text-align: center;
+  color: var(--color-success);
+  font-size: 0.9rem;
+}
+
+.ref_com3 {
+  text-align: center;
+  color: var(--color-red);
+  font-size: 0.9rem;
+}
+
+.ref_com2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline !important;
+}
+
+.ref_three {
+  flex-basis: 60%;
+}
+
+.ref_three_one {
+  width: 100%;
+  background: var(--color-blue-primary);
+  height: 100%;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ref_btn {
+  /*width: 100%;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref_three_one h2 {
+  font-size: 1.9rem;
+}
+
+.ref_img {
+  width: 50%;
+  height: 50%;
+}
+
+.ref_img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.ref_content {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .ref_one {
+    flex-direction: column-reverse;
+  }
+
+  .ref_two {
+    flex-basis: 80%;
+  }
+
+  .ref_three {
+    flex-basis: 20%;
+  }
+
+  .ref_img {
+    width: 0%;
+    height: 0%;
+  }
+
+  .ref_img > img {
+    display: none;
+  }
+
+  .ref_content {
+    display: none;
+  }
+}

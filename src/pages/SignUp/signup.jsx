@@ -11,7 +11,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import Loader from "../../components/loader";
 import MiniLoader from "../../components/miniLoader";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion } from "framer-motion";
 
@@ -93,7 +93,7 @@ const SignUp = () => {
 
         if (redirectTo === 0) {
           setRedirectTo(10);
-          navigate("/login");
+          navigate("/signin");
         }
       }, 1000);
 
@@ -121,6 +121,9 @@ const SignUp = () => {
           photoURL: "",
           currentPassword: password,
           firstTimeLogin: true,
+          isAdmin: false,
+          balance: 0,
+          email: email,
         });
 
         //Setting Up The User Settings
@@ -136,6 +139,24 @@ const SignUp = () => {
         await setDoc(doc(db, "userActivities", uid), {
           transactions: [],
           cart: [],
+        });
+
+        //For Referral
+        await setDoc(doc(db, "referrals", uid), {
+          referrals: [],
+        });
+
+        const docRef = doc(db, "contestant", "SoolaimanG1");
+        const docSnap = await getDoc(docRef);
+
+        const find = docSnap.data().referBy.map((data) => {
+          return data.email === email
+            ? { ...data, completeSignUp: true }
+            : data;
+        });
+
+        await updateDoc(doc(db, "contestant", "SoolaimanG1"), {
+          referBy: find,
         });
       })
       .catch((error) => {
@@ -188,7 +209,7 @@ const SignUp = () => {
                       name="email"
                       id="email"
                       placeholder="E-mail"
-                      value={email}
+                      value={email.toLowerCase().trim()}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}

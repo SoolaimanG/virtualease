@@ -24,7 +24,7 @@ export default function TransitionsModal({ setIsChecked }) {
 
   return (
     <div>
-      <p onClick={handleOpen}>
+      <p id="tc_p" onClick={handleOpen}>
         By clicking you are accepting out Terms and Condition
       </p>
       <Modal
@@ -150,7 +150,13 @@ export default function TransitionsModal({ setIsChecked }) {
                 >
                   I accept
                 </button>
-                <button onClick={handleClose} className="btn-outline">
+                <button
+                  onClick={() => {
+                    handleClose();
+                    setIsChecked(false);
+                  }}
+                  className="btn-outline"
+                >
                   I do not accept
                 </button>
               </div>

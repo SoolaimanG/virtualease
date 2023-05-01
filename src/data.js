@@ -163,3 +163,103 @@ export const pricings = [
     ],
   },
 ];
+
+export const MostSearch = [
+  {
+    id: 1,
+    value: "usa",
+  },
+  {
+    id: 2,
+    value: "london",
+  },
+  {
+    id: 3,
+    value: "germany",
+  },
+  {
+    id: 4,
+    value: "china",
+  },
+  {
+    id: 5,
+    value: "cyprus",
+  },
+];
+
+export const LiteCoinAddress = [
+  "MBieVkWJawRfH3zuVjNCiP5mLUAcGRFqkk",
+  "MEzn95qAV15xmgYAhdwTHM5XmU9vk4N5oe",
+  "MBH1Mw6xZukCZDzT8KEkKXVYSjMDU7H51k",
+  "MENDhciWfCSEJvEVRQKuH4wxv6FG11wgoH",
+  "MSSvhT2feqAQhxp7eGWBUFzoiVk4xBBwJR",
+  "MFCghJ4NiQxfJpTdZLT5jgUqtYzm4bVFiC",
+  "MT1QBWWoKJptDx7omBobWZEycZ5Lk1CFgU",
+  "MRMVvRhT6DCmGueJnA8uVDUh8p4sLrGUnY",
+  "MK7CKEaYhAZjYyUwyQoPGBVWkqVHnFBUmf",
+  "MHqcnzPE1WG8X2kUmdsRcWdJ2BNUu5mJmo",
+  "MF1JT28DbbdPoY9LxA3JsRzmitiTiucPq2",
+  "MKjEDynd9uwCfBq4PTSnTsMKzEprzYsUuQ",
+  "M8VjPchZCDT7yYo7sQX2oAG14SSMnvmTNp",
+  "MTRvn5egkHGQsyRnpZXSGWPcDhmAdPxwA8",
+  "MQrzKzzJXpMxeqmymwyiXTsf9KjtxuhMy1",
+  "ML2xHGJ2nSarxc3n9HYx7YZ2q4xZzy4LQN",
+  "MQBxuJLsjXYfto9uRygUZRCEdeUy5ZvS3V",
+  "MEvH6sj5E5tcsAZXQu7yaG54dRRJHPn1ii",
+  "MGwsRKZMJgps65dkktV5ag5Zzt19Fy1x2b",
+  "MQLszmo8N76aom9ydyDzPV7tbFzCVirtY3",
+  "MJ2NTU17tErd2Y5VkQJy8D4Ahh8wqDdwcH",
+  "ME1ApnUEGTV2GvURKmpsu6n6HgioEAh3sW",
+  "MFmghgAJ4mJMCP3RDr2RibVPsZzkhizNE3",
+  "MEEeuufGDnNPimWfrmsKdnJvTx2JQQX25M",
+  "MV63BwJN8ZuPLFLPbhxVTc7Bc23WSsXnsR",
+  "MHqGJ3RMTNRHPhKjBHB4TJzRiaZqpHp5Qe",
+];
+
+export const countryFlags = [
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Flag_of_the_United_States_%281863-1865%29.svg/1200px-Flag_of_the_United_States_%281863-1865%29.svg.png",
+  "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+  "https://cdn.britannica.com/68/7068-004-7848FEB4/Flag-Canada.jpg",
+  "https://cdn.britannica.com/78/6078-004-77AF7322/Flag-Australia.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/640px-Flag_of_Brazil.svg.png",
+  "https://cdn.britannica.com/82/682-004-F0B47FCB/Flag-France.jpg",
+  "https://cdn.britannica.com/25/4825-004-F1975B92/Flag-United-Kingdom.jpg",
+  "https://cdn.britannica.com/73/2573-004-29818847/Flag-Mexico.jpg",
+  "https://plus.unsplash.com/premium_photo-1674591172391-b3054ccdca25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+];
+
+export const countryNames = [
+  "United State",
+  "Germany",
+  "Canada",
+  "Austrialia",
+  "Brazil",
+  "France",
+  "London",
+  "Mexico",
+  "China",
+];
+
+export const countryAbbrev = [
+  "US",
+  "DE",
+  "CA",
+  "AU",
+  "BR",
+  "FR",
+  "GB",
+  "MX",
+  "CN",
+];
+export const countryCodes = [
+  "+1",
+  "+49",
+  "+1",
+  "+61",
+  "+55",
+  "+33",
+  "+44",
+  "+52",
+  "+86",
+];
+export const countryNumLength = [10, 11, 10, 9, 11, 10, 10, 10, 11];

@@ -1,0 +1,919 @@
+.home_one {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home_two {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.home_three {
+  flex-basis: 20%;
+  width: 100%;
+  position: relative;
+}
+
+.home_four {
+  flex-basis: 80%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.home_five {
+  display: flex;
+  gap: 1rem;
+  padding-top: 7rem;
+}
+
+.home_five_one {
+  flex-basis: 40%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home_five_two {
+  flex-basis: 60%;
+}
+
+/* ======================DASHBOARD============== */
+.comp_dashboard {
+  width: 100%;
+  background: var(--color-black);
+  height: fit-content;
+  padding: 0.7rem;
+  color: var(--color-white);
+}
+
+.comp_dashboard:first-child {
+  background: url("../../assets/cartBg.svg");
+}
+
+/* ===============SIDEBAR================== */
+.sideBar_one {
+  width: 100%;
+  background: var(--color-blue-very-light);
+  height: 100%;
+  transition: all 500ms ease-in-out;
+  z-index: 10;
+}
+
+.sideBar_three {
+  margin-top: 3rem;
+  transition: all 500ms ease-in-out;
+}
+
+.sideBar_four {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-black);
+  width: 10rem;
+  transition: all 300ms ease;
+}
+
+.sideBar_four:hover {
+  color: var(--color-white);
+}
+
+.sideBar_four > svg {
+  font-size: 1.4rem;
+}
+
+.sideBar_five {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.sideBar_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  padding: 0.3rem;
+  display: none;
+}
+
+/* ===============TOPBAR================== */
+.topBar_one {
+  min-width: 80%;
+  height: fit-content;
+  background: var(--color-grey);
+  position: fixed;
+}
+
+.topBar_two {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topBar_three {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topBar_three > svg {
+  cursor: pointer;
+}
+
+.topBar_position {
+  position: relative;
+}
+
+.numOfItem {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: var(--color-red);
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.numOfItem > p {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-white);
+}
+
+/* ===================HOT================= */
+.hot_one {
+  background: var(--color-light-grey);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hot_two {
+  background: url("../../assets/wave-haikei.svg");
+  height: 3rem;
+  color: var(--color-white);
+  background-position-y: -16rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hot_three {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  border: 1.5px solid var(--color-grey);
+}
+
+.hot_four {
+  width: 100%;
+  display: flex;
+  background: var(--color-white);
+  height: fit-content;
+  padding: 0.3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.hot_flag {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hot_flag > img {
+  width: 5rem;
+}
+
+.hot_chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hot_btn {
+  all: unset;
+  border: 0.8px solid var(--color-blue-primary);
+  color: var(--color-blue-light);
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.hot_btn:hover {
+  background: var(--color-blue-primary);
+  color: var(--color-white);
+}
+
+/* ===============HISTORY================== */
+.history_one {
+  height: 20rem;
+  background: var(--color-light-grey);
+  width: 100%;
+  border: 1.5px solid var(--color-grey);
+}
+
+.history_two {
+  background: url("../../assets/history.svg");
+  height: 3rem;
+  background-position: center;
+  background-size: cover;
+  color: var(--color-white);
+}
+
+.history_scroll {
+  overflow: hidden;
+  height: 85%;
+}
+
+.history_record_two {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 1rem 0rem;
+}
+
+.history_record {
+  text-align: center;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.history_failed {
+  background: var(--color-red);
+  color: var(--color-white);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.history_pending {
+  background: #ffdd50;
+  color: var(--color-white);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.history_success {
+  color: var(--color-success);
+  background: var(--color-success);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.history_empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.history_empty > img {
+  width: 80%;
+  height: 60%;
+}
+
+.history_empty > h4 {
+  text-align: center;
+  color: var(--color-light-black);
+}
+
+/* ===============BALANCE================== */
+.balance_one {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.balance_one h4 {
+  color: var(--color-grey);
+}
+
+.balance_one h2 {
+  font-size: 1.7rem;
+}
+
+.balance_two {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.balance_two_one {
+  border: none;
+  outline: none;
+  width: 7.5rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.balance_two_one svg {
+  font-size: 1.7rem;
+}
+
+/* ===============REFERRALS================== */
+.refer_comp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.refer_comp h2 {
+  font-weight: 500;
+}
+
+.refer_comp p {
+  color: var(--color-grey);
+}
+
+/* ================QUERY====================== */
+.query_modal {
+  width: 40rem;
+  height: 30rem;
+}
+
+.query_modal_one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.query_modal_two {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.query_form {
+  width: 100%;
+  display: flex;
+  border-bottom: 1.5px solid var(--color-grey);
+  align-items: center;
+  padding: 1rem 1rem;
+  gap: 0.5rem;
+}
+
+.query_form > input {
+  all: unset;
+  width: 100%;
+}
+
+.most_searched {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* ============================================================================ */
+.active {
+  background: var(--color-blue-secondary);
+  color: var(--color-white);
+  height: 3rem;
+  width: 11rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mui_svg {
+  font-size: 1.3rem;
+}
+
+.menu_disappear {
+  display: none;
+}
+/* ========================ADDCREDIT=========================== */
+.addCredit {
+  width: 40rem;
+  height: 30rem;
+  overflow-y: scroll;
+}
+
+.addCredit_one {
+  width: 100%;
+  height: 100%;
+}
+
+.addCredit_btn_one {
+  margin-top: 2rem;
+  transition: all 500ms;
+}
+
+.addCredit_btn_one:hover {
+  background-color: var(--color-blue-primary);
+  color: var(--color-white);
+}
+
+.credit_one {
+  width: 100%;
+  height: 100%;
+}
+
+.credt_three {
+  border-bottom: var(--color-light-grey) 1.5px solid;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.credit_btn {
+  all: unset;
+  font-size: 0.9rem;
+  transition: all 500ms;
+  cursor: pointer;
+  padding: 1rem 0rem;
+}
+
+.permission {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.credit_btn:hover {
+  color: var(--color-blue-primary);
+}
+
+.active_credit_tab {
+  color: var(--color-blue-primary);
+  border-bottom: 2px solid var(--color-blue-primary);
+}
+
+.credit_tab_one {
+  margin-top: 1.5rem;
+}
+
+.credit_tab_two > h2 {
+  font-size: 1.3rem;
+  color: var(--color-light-black);
+}
+
+.credit_tab_three {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.credit_tab_three_btn {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.credit_tab_three_btn > svg {
+  font-size: 1rem;
+}
+
+.credit_tab_three_btn:first-child {
+  background: #6772e5;
+  color: var(--color-white);
+}
+
+.credit_tab_three_btn:first-child > svg {
+  font-size: 2.5rem;
+}
+
+.credit_tab_three_btn:nth-child(2) {
+  background: #3155dc;
+  color: var(--color-white);
+}
+
+.credit_tab_three_btn:nth-child(3) {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.credit_tab_three_btn:last-child {
+  background: #ff9900;
+  color: var(--color-white);
+}
+
+.credit_tab_three_btn:disabled {
+  cursor: not-allowed;
+}
+
+.credit_tab_one_one {
+  display: flex;
+  align-items: center;
+}
+
+.credit_tab_two_two {
+  width: 100%;
+}
+
+.creditAddressShow {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  height: 3rem;
+  align-items: center;
+  border: 1.5px solid var(--color-grey);
+  border-radius: 5px;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+}
+
+.creditAddressShow > p {
+  cursor: copy;
+}
+
+.copied_addresss {
+  color: var(--color-success);
+}
+
+.sent_coin:disabled {
+  background: var(--color-blue-secondary);
+  cursor: not-allowed;
+}
+
+.adress_copy_svg {
+  height: 100%;
+  background: var(--color-blue-light);
+  color: var(--color-white);
+  width: 3rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.credit_tab_three_input {
+  width: 100%;
+  height: 2.5rem;
+  border: 1.3px solid var(--color-light-black);
+  border-radius: 5px;
+  padding-left: 1rem;
+  outline: none;
+}
+
+.credit_tab_three_input::placeholder {
+  font-size: 1.1rem;
+}
+
+.credit_crypto_one {
+  flex-basis: 40%;
+  height: 100%;
+  background: var(--color-light-black);
+}
+
+.credit_tab_three_input::-webkit-inner-spin-button,
+.credit_tab_three_input::-webkit-outer-spin-button {
+  display: none;
+}
+
+.credit_tab_two_three {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.convertBalance {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-light-black);
+}
+
+.credit_tab_one_one {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.sent_coin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+/* ================CONFIRMING================ */
+.confirmPaymentModal_one_one {
+  position: relative;
+  width: 25rem;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.confirmPaymentModal_one {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(farthest-side, #0000 40%, #474bff 41%);
+  background: linear-gradient(
+        0deg,
+        rgba(71, 75, 255, 0.5) 50%,
+        rgba(71, 75, 255, 1) 0
+      )
+      center/4.5px 100%,
+    linear-gradient(
+        90deg,
+        rgba(71, 75, 255, 0.25) 50%,
+        rgba(71, 75, 255, 0.75) 0
+      )
+      center/100% 4.5px;
+  background-repeat: no-repeat;
+  animation: spinner-d3o0rx 1s infinite steps(12);
+}
+
+.confirmPaymentModal_one::before,
+.confirmPaymentModal_one::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+
+.confirmPaymentModal_one::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+
+@keyframes spinner-d3o0rx {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.confirmPayment_modal_btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.confirmPaymentModal_one_one > h2 {
+  font-weight: 500;
+  color: var(--color-light-black);
+}
+
+.confirmPaymentModal_one_one > p {
+  text-align: center;
+}
+
+.confirmPaymentModal_one_one_two {
+  width: 5rem;
+  height: 5rem;
+  background: var(--color-red-light);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.confirmPaymentModal_one_one_two > svg {
+  font-size: 2.5rem;
+}
+
+.confirmPaymentModal_one_one_h3 {
+  font-weight: 500;
+  color: var(--color-light-black);
+}
+
+@media (max-width: 900px) and (min-width: 767px) {
+  .addCredit {
+    width: 35rem;
+  }
+
+  .home_three {
+    flex-basis: 10%;
+  }
+
+  .home_four {
+    flex-basis: 90%;
+  }
+
+  .home_five {
+    flex-direction: column;
+  }
+
+  .sideBar_two h2 {
+    display: none;
+  }
+
+  .sideBar_nav_name {
+    display: none;
+  }
+
+  .sideBar_one {
+    width: 100%;
+    background: var(--color-blue-very-light);
+    height: 100%;
+  }
+
+  .sideBar_three {
+    margin-top: 3rem;
+  }
+
+  .sideBar_four {
+    width: 5rem;
+    justify-content: center;
+  }
+
+  .sideBar_four > svg {
+    font-size: 1.4rem;
+  }
+
+  .sideBar_five {
+    gap: 3rem;
+  }
+
+  .topBar_one {
+    width: 85%;
+  }
+
+  .active {
+    background: var(--color-white);
+    color: var(--color-blue-secondary);
+  }
+
+  .query_modal {
+    width: 34rem;
+    height: 26rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .confirmPaymentModal_one_one {
+    width: 18rem;
+  }
+
+  .addCredit {
+    width: 20rem;
+  }
+
+  .creditAddressShow {
+    width: 100%;
+  }
+
+  .creditAddressShow > p {
+    font-size: 0.6rem;
+  }
+
+  .hot_two {
+    background-position-y: -10rem;
+  }
+
+  .hot_four {
+    width: 47rem;
+  }
+
+  .home_five {
+    flex-direction: column;
+  }
+
+  .hot_flag > img {
+    width: 5rem;
+  }
+
+  .hot_btn {
+    padding: 3px 9px;
+  }
+
+  .topBar_one {
+    width: 100%;
+  }
+
+  .sideBar_one {
+    transform: translateX(-300px);
+    position: absolute;
+    width: 15rem;
+  }
+
+  .openSideBar {
+    transform: translateX(0px);
+    transition: all 500ms ease-in-out;
+    position: absolute;
+    width: 15rem;
+  }
+
+  .home_three {
+    flex-basis: 0%;
+  }
+
+  .home_four {
+    flex-basis: 100%;
+  }
+
+  .topBar_three {
+    gap: 0.2rem;
+  }
+
+  .query_modal {
+    width: 20rem;
+    height: 30rem;
+  }
+
+  .menu_disappear {
+    display: initial;
+  }
+}
+
+@media (max-width: 290px) {
+  .confirmPaymentModal_one_one {
+    width: 15rem;
+  }
+
+  .addCredit {
+    width: 15rem;
+  }
+
+  .creditAddressShow > p {
+    font-size: 0.4rem;
+  }
+
+  .sideBar_one {
+    width: 13rem;
+  }
+
+  .openSideBar {
+    width: 13rem;
+  }
+
+  .topBar_three {
+    gap: 0.1rem;
+  }
+
+  .topBar_three h3 {
+    font-size: 1.1rem;
+  }
+
+  .sideBar_close {
+    display: initial;
+  }
+
+  .query_modal {
+    width: 13rem;
+    height: 30rem;
+  }
+
+  .hot_two {
+    background-position-y: -5rem;
+  }
+
+  .balance_two_one {
+    width: 6rem;
+  }
+
+  .history_two h3 {
+    font-size: 1rem;
+  }
+}

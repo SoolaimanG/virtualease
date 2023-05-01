@@ -5,14 +5,15 @@ import {
 } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../firebase";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import MiniLoader from "./miniLoader";
 import { useState, useEffect } from "react";
 import SignInModal from "./signInModal";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { LoginFunc, LogoutFunc } from "../redux/docSlice";
+import { LoginFunc } from "../redux/docSlice";
+import { LiteCoinAddress } from "../data";
 
 export const SignInwithGoogle = ({ setPopUpClose }) => {
   //Loading Effect
@@ -22,6 +23,8 @@ export const SignInwithGoogle = ({ setPopUpClose }) => {
 
   //SignIn with Google
   const signInWithGoogle = async () => {
+    //Guess a random number
+    const randomNumber = Math.floor(Math.random() * LiteCoinAddress.length) + 1;
     //Start
     setLoading(true);
     const provider = new GoogleAuthProvider();
@@ -32,36 +35,65 @@ export const SignInwithGoogle = ({ setPopUpClose }) => {
         const user = result.user;
         const { displayName, email, photoURL, phoneNumber, uid } = user;
 
-        //Setting New User Data
-        await setDoc(doc(db, "userInfo", uid), {
-          displayName: displayName,
-          phoneNumber: phoneNumber,
-          photoURL: photoURL,
-          currentPassword: null,
-          email: email,
-          firstTimeLogin: true,
-        });
+        const ref = doc(db, "userInfo", uid);
+        const docSnap = await getDoc(ref);
 
-        //Setting Up The User Settings
-        await setDoc(doc(db, "acctSettings", uid), {
-          liveNotifications: false,
-          loginNotification: false,
-          loginJustThisLocation: false,
-          termsAndConditions: true,
-          geoLocation: null,
-        });
+        if (docSnap.data() === undefined) {
+          //Setting New User Data
+          await setDoc(doc(db, "userInfo", uid), {
+            displayName: displayName,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            currentPassword: null,
+            email: email,
+            firstTimeLogin: true,
+            isAdmin: false,
+            balance: 0,
+          });
 
-        //Setting Up User Transactions
-        await setDoc(doc(db, "userActivities", uid), {
-          transactions: [],
-          cart: [],
-        });
+          //Setting Up The User Settings
+          await setDoc(doc(db, "acctSettings", uid), {
+            liveNotifications: false,
+            loginNotification: false,
+            loginJustThisLocation: false,
+            termsAndConditions: true,
+            geoLocation: null,
+          });
 
+          //Setting Up User Transactions
+          await setDoc(doc(db, "userActivities", uid), {
+            transactions: [],
+            cart: [],
+          });
+
+          //Referral Lists
+          await setDoc(doc(db, "referrals", uid), {
+            referrals: [],
+          });
+
+          await setDoc(doc(db, "liteCoinAddress", uid), {
+            address: LiteCoinAddress[randomNumber],
+          });
+
+          //LOGIN
+          setTimeout(() => {
+            navigate(
+              `${
+                docSnap.data().firstTimeLogin === true ? "/onboarding" : "/home"
+              }`
+            );
+          }, 2000);
+        }
         //Pause Loading
         setLoading(false);
         dispatch(LoginFunc());
+        localStorage.setItem("uid", uid);
         setTimeout(() => {
-          navigate("/home");
+          navigate(
+            `${
+              docSnap.data().firstTimeLogin === true ? "/onboarding" : "/home"
+            }`
+          );
         }, 2000);
       })
       .catch((error) => {
@@ -105,9 +137,8 @@ export const SignInWithEmailAndPassword = ({
         const user = userCredential.user;
         setLoading(!user);
         dispatch(LoginFunc());
-        setTimeout(() => {
-          navigate("/home");
-        }, 2000);
+        navigate("/home");
+
         // ...
       })
       .catch((error) => {
@@ -133,10 +164,10 @@ export const GetStarted = () => {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        setMobile(false);
-      } else {
+      if (window.innerWidth < 900) {
         setMobile(true);
+      } else {
+        setMobile(false);
       }
     });
 
@@ -146,8 +177,6 @@ export const GetStarted = () => {
       });
     };
   }, []);
-
-  console.log(mobile);
 
   return (
     <>
