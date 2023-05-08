@@ -1,0 +1,337 @@
+.number_page_one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.number_page_two {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.number_page_three {
+  flex-basis: 60%;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.number_page_four {
+  flex-basis: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.number_page_five {
+  background: var(--color-light-grey);
+  flex-basis: 50%;
+  border-radius: 20px;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+}
+
+.number_page_four_general {
+  background: var(--color-light-grey);
+  width: 100%;
+  flex-basis: 50%;
+  height: 100%;
+  border-radius: 20px;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+}
+
+.number_page_four_general:hover {
+  background: var(--color-grey);
+  box-shadow: 8px 8px 12px #cacaca, -8px -8px 12px #f6f6f6;
+}
+
+.number_page_five:hover {
+  background: var(--color-grey);
+  box-shadow: 8px 8px 12px #cacaca, -8px -8px 12px #f6f6f6;
+}
+
+/* =======USA SPECIALS======= */
+
+.usaSpecial_two {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-left: 1rem;
+}
+
+.usaSpecial_two > h4 {
+  color: var(--color-light-black);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.useSpecial_img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.useSpecial_img > img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: 3;
+}
+
+.clip_path {
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+  background: var(--color-red);
+  width: 25px;
+  height: 25px;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* ======MOBILE NUMBER====== */
+.number_page_four_general {
+  color: var(--color-black);
+}
+
+.number_page_four_one {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.number_page_four_one > svg {
+  font-size: 1.8rem;
+}
+
+.number_page_four_one > h4 {
+  color: var(--color-light-black);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ======ALL NUM====== */
+.allNum_one {
+  width: 100%;
+  height: 100vh;
+  background: var(--color-light-grey);
+  overflow: hidden;
+}
+
+.allNume_two {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.allNume_two > h4 {
+  font-size: 1.4rem;
+}
+
+.allNume_two > small {
+  color: var(--color-blue-primary);
+}
+
+.allNumForm {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: var(--color-light-black);
+}
+
+.allNumForm > input {
+  all: unset;
+  width: 100%;
+  height: 100%;
+}
+
+.allNumForm > svg {
+  font-size: 1.4rem;
+  color: var(--color-grey-dark);
+}
+
+.addNums_three {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: scroll;
+  padding: 1rem 0.5rem;
+  padding-bottom: 10rem;
+}
+
+.allNums_four {
+  width: 100%;
+  height: 4.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--color-light-black);
+  padding: 0.5rem 0.5rem;
+  background: var(--color-white);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.allNums_five {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.allNums_five > img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  border: 0.5px solid var(--color-grey-dark);
+}
+
+.allNums_six > small {
+  color: var(--color-blue-primary);
+}
+
+/* =====MEDIA QUERIES===== */
+@media (max-width: 767px) {
+  .number_page_two {
+    flex-direction: column;
+  }
+
+  .usaSpecial_two {
+    height: 10rem;
+  }
+
+  .number_page_four_general {
+    flex-basis: unset;
+    height: 5rem;
+  }
+
+  .useSpecial_img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 290px) {
+  .usaSpecial_two {
+    height: 8rem;
+  }
+
+  .useSpecial_img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .usaSpecial_two > h4 {
+    font-size: 0.8rem;
+  }
+
+  .number_page_four_general {
+    height: 4rem;
+  }
+
+  .number_page_four_one {
+    gap: 0.8rem;
+    padding-left: 0.7rem;
+  }
+
+  .number_page_four_one > svg {
+    font-size: 1.5rem;
+  }
+
+  .number_page_four_one > h4 {
+    font-size: 0.8rem;
+  }
+
+  .allNume_two {
+    gap: 0.8rem;
+  }
+
+  .allNume_two > h4 {
+    font-size: 1.2rem;
+  }
+
+  .allNume_two > small {
+    font-size: 0.7rem;
+  }
+
+  .allNumForm {
+    height: 2.3rem;
+    padding: 0.4rem;
+  }
+
+  .allNumForm > svg {
+    font-size: 1.2rem;
+  }
+
+  .allNumForm > input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  .allNumForm > svg {
+    font-size: 1.4rem;
+    color: var(--color-grey-dark);
+  }
+
+  .addNums_three {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: scroll;
+    padding: 1rem 0.5rem;
+    padding-bottom: 10rem;
+  }
+
+  .allNums_four {
+    height: 4rem;
+  }
+
+  .allNums_five {
+    gap: 0.5rem;
+  }
+
+  .allNums_five > img {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .allNums_six > h4 {
+    font-size: 0.95rem;
+  }
+
+  .allNums_six > small {
+    font-size: 0.75rem;
+  }
+}

@@ -1,14 +1,14 @@
 import { RiMenu3Line } from "react-icons/ri";
-import { ImCart } from "react-icons/im";
-import { FiSearch } from "react-icons/fi";
 import Tooltip from "@mui/material/Tooltip";
 import { IconButton } from "@mui/material";
-import { useEffect, useState } from "react";
 import { useTime } from "../customHooks";
 import Query from "./query";
+import { BiLogOut } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const Topbar = ({ setOpenMenu }) => {
   const greeting = useTime();
+  const navigate = useNavigate();
 
   return (
     <nav className="topBar_one">
@@ -26,12 +26,9 @@ const Topbar = ({ setOpenMenu }) => {
           </div>
 
           <Query />
-          <Tooltip title="Toggle Cart" placement="bottom">
-            <IconButton className="topBar_position">
-              <div className="numOfItem">
-                <p className="numOfItem_p">0</p>
-              </div>
-              <ImCart className="mui_svg" />
+          <Tooltip title="Log Out" placement="bottom">
+            <IconButton onClick={() => navigate("/")}>
+              <BiLogOut className="mui_svg" />
             </IconButton>
           </Tooltip>
         </div>

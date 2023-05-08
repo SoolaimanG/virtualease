@@ -530,6 +530,10 @@
   .termandcondition h1 {
     text-align: left;
   }
+
+  .signIn_container {
+    width: 20rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -556,5 +560,22 @@
 
   .termandcondition {
     width: 14rem;
+  }
+
+  .signIn_container {
+    width: 14rem;
+  }
+
+  .signIn_header h2 {
+    font-size: 1.2rem;
+  }
+
+  .signIn_header p {
+    color: var(--color-black);
+    text-align: center;
+  }
+
+  .signInwithThirdPartyBtn button {
+    font-size: 0.9rem;
   }
 }

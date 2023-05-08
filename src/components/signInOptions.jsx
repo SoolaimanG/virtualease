@@ -21,80 +21,85 @@ export const SignInwithGoogle = ({ setPopUpClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //SignIn with Google
-  const signInWithGoogle = async () => {
+  const createDocument = async (
+    uid,
+    displayName,
+    email,
+    photoURL,
+    phoneNumber
+  ) => {
     //Guess a random number
     const randomNumber = Math.floor(Math.random() * LiteCoinAddress.length) + 1;
+    const ref = doc(db, "userInfo", uid);
+    const docSnap = await getDoc(ref);
+    //
+    if (docSnap.data() === undefined) {
+      // Setting New User Data
+      await setDoc(doc(db, "userInfo", uid), {
+        displayName: displayName,
+        phoneNumber: phoneNumber,
+        photoURL: photoURL,
+        currentPassword: null,
+        email: email,
+        firstTimeLogin: true,
+        isAdmin: false,
+        balance: 0,
+      });
+
+      //Setting Up The User Settings
+      await setDoc(doc(db, "acctSettings", uid), {
+        liveNotifications: false,
+        loginNotification: false,
+        loginJustThisLocation: false,
+        termsAndConditions: true,
+        geoLocation: null,
+      });
+
+      //Setting Up User Transactions
+      await setDoc(doc(db, "userActivities", uid), {
+        transactions: [],
+        cart: [],
+      });
+
+      //Referral Lists
+      await setDoc(doc(db, "referrals", uid), {
+        referrals: [],
+      });
+
+      await setDoc(doc(db, "liteCoinAddress", uid), {
+        address: LiteCoinAddress[randomNumber],
+      });
+
+      navigate("/onboarding");
+    } else {
+      const firstTimeLogin = docSnap.data().firstTimeLogin;
+      navigate(`${firstTimeLogin ? "/onboarding" : "/home"}`);
+    }
+  };
+
+  //SignIn with Google
+  const signInWithGoogle = () => {
     //Start
     setLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-      .then(async (result) => {
+      .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
+
         const user = result.user;
         const { displayName, email, photoURL, phoneNumber, uid } = user;
 
-        const ref = doc(db, "userInfo", uid);
-        const docSnap = await getDoc(ref);
-
-        if (docSnap.data() === undefined) {
-          //Setting New User Data
-          await setDoc(doc(db, "userInfo", uid), {
-            displayName: displayName,
-            phoneNumber: phoneNumber,
-            photoURL: photoURL,
-            currentPassword: null,
-            email: email,
-            firstTimeLogin: true,
-            isAdmin: false,
-            balance: 0,
-          });
-
-          //Setting Up The User Settings
-          await setDoc(doc(db, "acctSettings", uid), {
-            liveNotifications: false,
-            loginNotification: false,
-            loginJustThisLocation: false,
-            termsAndConditions: true,
-            geoLocation: null,
-          });
-
-          //Setting Up User Transactions
-          await setDoc(doc(db, "userActivities", uid), {
-            transactions: [],
-            cart: [],
-          });
-
-          //Referral Lists
-          await setDoc(doc(db, "referrals", uid), {
-            referrals: [],
-          });
-
-          await setDoc(doc(db, "liteCoinAddress", uid), {
-            address: LiteCoinAddress[randomNumber],
-          });
-
-          //LOGIN
-          setTimeout(() => {
-            navigate(
-              `${
-                docSnap.data().firstTimeLogin === true ? "/onboarding" : "/home"
-              }`
-            );
-          }, 2000);
+        //If the Login is successful Create:
+        //Turn off loading,do not restrict route access,save the uid in localStorage
+        if (user) {
+          setLoading(false);
+          dispatch(LoginFunc());
+          localStorage.setItem("uid", uid);
+          createDocument(uid, displayName, email, photoURL, phoneNumber);
+        } else {
+          window.alert("Something went wrong");
         }
-        //Pause Loading
-        setLoading(false);
-        dispatch(LoginFunc());
-        localStorage.setItem("uid", uid);
-        setTimeout(() => {
-          navigate(
-            `${
-              docSnap.data().firstTimeLogin === true ? "/onboarding" : "/home"
-            }`
-          );
-        }, 2000);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -117,6 +122,7 @@ export const SignInwithGoogle = ({ setPopUpClose }) => {
   );
 };
 
+//Lggin with Email and Password
 export const SignInWithEmailAndPassword = ({
   emailCheck,
   email,
@@ -134,7 +140,9 @@ export const SignInWithEmailAndPassword = ({
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        const { user, uid } = userCredential.user;
+
+        localStorage.setItem("uid", uid);
         setLoading(!user);
         dispatch(LoginFunc());
         navigate("/home");
@@ -143,7 +151,6 @@ export const SignInWithEmailAndPassword = ({
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
         setAcctDoesNotExist(errorCode === "auth/user-not-found");
         setWrongPassword(errorCode === "auth/wrong-password");
         setLoading(false);
@@ -160,14 +167,15 @@ export const SignInWithEmailAndPassword = ({
   );
 };
 
+//Get Started Modal
 export const GetStarted = () => {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 900) {
-        setMobile(true);
-      } else {
+      if (window.innerWidth > 900) {
         setMobile(false);
+      } else {
+        setMobile(true);
       }
     });
 
@@ -180,12 +188,10 @@ export const GetStarted = () => {
 
   return (
     <>
-      {!mobile ? (
+      {mobile ? (
         <SignInModal className={"btn-fill getStarted"} name={"Get Started"} />
       ) : (
-        <Link to={"/signin"} className="btn-fill getStarted">
-          Get Started
-        </Link>
+        <SignInModal className={"btn-fill getStarted"} name={"Get Started"} />
       )}
     </>
   );

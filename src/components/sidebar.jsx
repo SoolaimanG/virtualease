@@ -28,31 +28,31 @@ const Sidebar = ({ openMenu, setOpenMenu }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"} className="sideBar_four">
+            <NavLink to={"/numbers"} className="sideBar_four">
               <BsSimFill />
               <p className="sideBar_nav_name">Numbers</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"} className="sideBar_four">
+            <NavLink to={"/vpn"} className="sideBar_four">
               <MdOutlineVpnKey />
               <p className="sideBar_nav_name">VPN Logs</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"} className="sideBar_four">
+            <NavLink to={"/ref"} className="sideBar_four">
               <MdInsertInvitation />
               <p className="sideBar_nav_name">Rewards</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"} className="sideBar_four">
+            <NavLink to={"/settings"} className="sideBar_four">
               <AiFillSetting />
               <p className="sideBar_nav_name">Settings</p>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"} className="sideBar_four">
+            <NavLink to={"/faq"} className="sideBar_four">
               <MdHelpCenter />
               <p className="sideBar_nav_name">Help</p>
             </NavLink>

@@ -3,8 +3,11 @@ import Chip from "@mui/material/Chip";
 import Modal from "@mui/material/Modal";
 import { IconButton, Tooltip } from "@mui/material";
 import { FiSearch } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MostSearch } from "../data";
+import { db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { NoData } from "./history";
 
 const style = {
   position: "absolute",
@@ -20,6 +23,8 @@ export default function Query() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [query, setQuery] = useState("");
+  const [hot, setHot] = useState([]);
+  const [showQuery, setShowQuery] = useState([]);
 
   const handleChipClick = (id) => {
     const find = MostSearch.find((data) => {
@@ -28,6 +33,31 @@ export default function Query() {
 
     setQuery(find.value);
   };
+
+  useEffect(() => {
+    const getQuery = async () => {
+      const docRef = doc(db, "HotNumbers", "SoolaimanG1");
+      const docSnap = await getDoc(docRef);
+
+      setHot(docSnap.data().HotNumbers);
+    };
+
+    getQuery();
+  }, []);
+
+  useEffect(() => {
+    setShowQuery(
+      hot.filter((data) => {
+        return (
+          data.country.toLowerCase() == query.toLowerCase() ||
+          data.phoneNumber == query ||
+          data.email.toLowerCase() == query.toLowerCase() ||
+          data.expires == query ||
+          data.price == query
+        );
+      })
+    );
+  }, [query]);
 
   return (
     <div>
@@ -70,6 +100,40 @@ export default function Query() {
                       <Chip label={search.value} clickable />
                     </div>
                   ))}
+                </div>
+                <div className="query_one_one">
+                  <table>
+                    <thead className="query_table_head">
+                      <tr>
+                        <th>Country</th>
+                        <th>Created On</th>
+                        <th>Email</th>
+                        <th>Expires</th>
+                        <th>Price($)</th>
+                        <th>Buy</th>
+                      </tr>
+                    </thead>
+                    <tbody className="query_table_head add_to_query">
+                      {showQuery.length < 1 ? (
+                        <NoData value="No Result" />
+                      ) : (
+                        showQuery.map((row) => (
+                          <tr key={row.id}>
+                            <td>{row.country}</td>
+                            <td>{row.createdOn}</td>
+                            <td>
+                              {row.email.length > 10
+                                ? row.email.slice(0, 10) + "***"
+                                : row.email}
+                            </td>
+                            <td>{row.expires}</td>
+                            <td>{row.price}</td>
+                            <button className="query_buy">Buy</button>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

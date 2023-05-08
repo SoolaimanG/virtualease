@@ -1,0 +1,66 @@
+.mobile_numbers {
+  width: 100%;
+}
+
+.mobile_numbers_two {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile_numbers_one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile_numbers_three {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--color-grey-dark);
+  height: fit-content;
+  padding: 1rem 0rem;
+  cursor: pointer;
+}
+
+.mobile_numbers_four {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.mobile_numbers_four > img {
+  border-radius: 10px;
+}
+
+.mobile_numbers_five {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.mobile_number_six {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.mobile_numbers_five > strong {
+  color: var(--color-red);
+}
+
+.mobile_numbers_five > small {
+  color: var(--color-blue-secondary);
+}
+
+.mobile_number_six > p {
+  color: var(--color-success);
+}
+
+.mobile_number_six > svg {
+  font-size: 1.4rem;
+  color: var(--color-grey-dark);
+}

@@ -45,6 +45,7 @@ const SignIn = () => {
     }, randomSec[random]);
 
     dispatch(LogoutFunc());
+    window.localStorage.removeItem("uid");
 
     return () => {
       clearTimeout(timer);

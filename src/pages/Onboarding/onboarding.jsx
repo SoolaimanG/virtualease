@@ -10,10 +10,11 @@ const Onboarding = () => {
   const [displayName, setDisplayName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [refer, setRefer] = useState("");
-  const [uid, setUid] = useState(localStorage.getItem("uid") || "");
+  const uid = localStorage.getItem("uid");
   const [refCode, setRefCode] = useState("");
 
   useEffect(() => {
+    //Checking if a user refer you already
     const getRef = async () => {
       const docRef = doc(db, "contestant", "SoolaimanG1");
       const docSnap = await getDoc(docRef);
@@ -90,7 +91,6 @@ const Onboarding = () => {
               You SignIn With Google That's Why You Are Seeing This!
             </p>
             <div className="onboarding_btn">
-              <button className="btn-outline">Skip</button>
               <OnboardingLoader
                 displayName={displayName}
                 phoneNumber={phoneNumber}
@@ -101,7 +101,7 @@ const Onboarding = () => {
         </div>
         <div className="onboarding_four">
           <img
-            src="https://images.pexels.com/photos/7562114/pexels-photo-7562114.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="https://img.freepik.com/free-vector/welcome-word-flat-cartoon-people-characters_81522-4207.jpg?w=826&t=st=1683537929~exp=1683538529~hmac=6e8c5f7057c6a8012de2fd3bbe2183f553877241c8ce1f114ec1dadb95100aee"
             alt=""
           />
         </div>

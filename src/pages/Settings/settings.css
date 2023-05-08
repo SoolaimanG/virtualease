@@ -1,0 +1,109 @@
+.settings_one {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.settings_two {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2.5rem;
+}
+
+.settings_three {
+  width: 100%;
+  height: fit-content;
+  border: 1.3px solid var(--color-grey);
+  border-radius: 8px;
+}
+
+.settings_four {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings_edit_btn {
+  all: unset;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  background: var(--color-light-grey);
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+.settings_info {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+}
+
+.settngs_info_one {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-basis: 40%;
+}
+
+.settngs_info_one > strong {
+  color: var(--color-light-black);
+}
+
+.settngs_info_one input {
+  all: unset;
+  border-bottom: 1.5px solid var(--color-light-black);
+  height: 2rem;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.settngs_info_one > small {
+  font-size: 0.95rem;
+}
+
+.settings_save {
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google_login {
+  color: var(--color-red);
+}
+
+.switch_toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.switch_toggle_one {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.switch_toggle_one > strong {
+  color: var(--color-light-black);
+}
+
+@media (max-width: 767px) {
+  .settings_info {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: unset;
+  }
+
+  .switch_toggle_one > small {
+    font-size: 0.7rem;
+  }
+}

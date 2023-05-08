@@ -109,6 +109,7 @@
   height: fit-content;
   background: var(--color-grey);
   position: fixed;
+  z-index: 8;
 }
 
 .topBar_two {
@@ -221,7 +222,7 @@
 /* ===============HISTORY================== */
 .history_one {
   height: 20rem;
-  background: var(--color-light-grey);
+  background: var(--color-white);
   width: 100%;
   border: 1.5px solid var(--color-grey);
 }
@@ -239,6 +240,20 @@
   height: 85%;
 }
 
+.transactions_state_one {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-light-black);
+  transform: rotateX(180deg);
+}
+
+.transactions_state_one > svg {
+  font-size: 1.2rem;
+}
+
 .history_record_two {
   margin-top: 1rem;
   display: flex;
@@ -247,44 +262,33 @@
   height: 100%;
   overflow-y: scroll;
   padding: 1rem 0rem;
+  justify-content: flex-start;
 }
 
 .history_record {
-  text-align: center;
-  width: 100%;
-  display: grid;
-  place-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  text-align: start;
 }
 
-.history_failed {
-  background: var(--color-red);
-  color: var(--color-white);
+.failed {
+  color: var(--color-red);
+}
+
+.transactions_state {
+  display: flex;
   width: 100%;
   height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--color-light-black);
 }
 
-.history_pending {
-  background: #ffdd50;
-  color: var(--color-white);
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+.pending {
+  color: #ffdd50;
 }
 
-.history_success {
+.success {
   color: var(--color-success);
-  background: var(--color-success);
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
 }
 
 .history_empty {
@@ -298,8 +302,8 @@
 }
 
 .history_empty > img {
-  width: 80%;
-  height: 60%;
+  width: 10rem;
+  height: 10rem;
 }
 
 .history_empty > h4 {
@@ -364,8 +368,9 @@
 
 /* ================QUERY====================== */
 .query_modal {
-  width: 40rem;
+  width: 45rem;
   height: 30rem;
+  overflow: hidden;
 }
 
 .query_modal_one {
@@ -403,7 +408,61 @@
   align-items: center;
   flex-wrap: wrap;
 }
-/* ============================================================================ */
+
+.query_one_one {
+  overflow: scroll;
+}
+
+.query_one_one > table {
+  width: 100%;
+}
+
+.query_table_head > tr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.query_table_head > tr > th {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.query_table_head > tr > td {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.add_to_query {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.add_to_query > tr:nth-child(odd) {
+  background: var(--color-light-grey);
+}
+
+.add_to_query > tr {
+  height: fit-content;
+  padding: 0.5rem 0.2rem;
+}
+
+.add_to_query > tr {
+  height: 3rem;
+}
+
+.query_buy {
+  all: unset;
+  font-size: 0.9rem;
+  text-decoration: underline !important;
+  cursor: pointer;
+  color: var(--color-blue-primary);
+}
+
+/* ========================================================================== */
 .active {
   background: var(--color-blue-secondary);
   color: var(--color-white);
@@ -786,14 +845,18 @@
   }
 
   .query_modal {
-    width: 34rem;
-    height: 26rem;
+    width: 38rem;
+    height: 30rem;
   }
 }
 
 @media (max-width: 767px) {
   .confirmPaymentModal_one_one {
     width: 18rem;
+  }
+
+  .query_one_one > table {
+    width: 35rem;
   }
 
   .addCredit {
@@ -901,7 +964,7 @@
   }
 
   .query_modal {
-    width: 13rem;
+    width: 17rem;
     height: 30rem;
   }
 

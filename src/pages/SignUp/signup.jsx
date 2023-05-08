@@ -14,6 +14,7 @@ import MiniLoader from "../../components/miniLoader";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { motion } from "framer-motion";
+import { LiteCoinAddress } from "../../data";
 
 export const BackToPrevious = ({ to }) => {
   //Using UseNavigate
@@ -107,6 +108,7 @@ const SignUp = () => {
   const signUpUser = (e) => {
     e.preventDefault();
     setSigningUp(true);
+    const randomNumber = Math.floor(Math.random() * LiteCoinAddress.length) + 1;
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
@@ -144,6 +146,10 @@ const SignUp = () => {
         //For Referral
         await setDoc(doc(db, "referrals", uid), {
           referrals: [],
+        });
+
+        await setDoc(doc(db, "liteCoinAddress", uid), {
+          address: LiteCoinAddress[randomNumber],
         });
 
         const docRef = doc(db, "contestant", "SoolaimanG1");

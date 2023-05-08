@@ -7,7 +7,6 @@ import { FaStripe, FaGoogle, FaCopy } from "react-icons/fa";
 import { TbBrandCoinbase } from "react-icons/tb";
 import { db } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { v4 as uuidv4 } from "uuid";
 import ConfirmPaymentModal from "./confirmPayment";
 import MiniLoader from "./miniLoader";
 
@@ -23,6 +22,32 @@ const style = {
   overflow: "hidden",
 };
 
+export const WalletAddress = ({ address }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyAddress = () => {
+    navigator.clipboard.writeText(address).then(() => {
+      setCopied(true);
+    });
+  };
+
+  useEffect(() => {
+    if (copied) {
+      setTimeout(() => {
+        setCopied(false);
+      }, 5000);
+    }
+  }, [copied]);
+  return (
+    <div className="creditAddressShow">
+      <p>{address}</p>
+      <div onClick={copyAddress} className="adress_copy_svg">
+        <FaCopy className={copied ? "copied_addresss" : ""} />
+      </div>
+    </div>
+  );
+};
+
 export default function AddCredit({ title }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -32,7 +57,6 @@ export default function AddCredit({ title }) {
   const [converter, setConverter] = useState(0);
   const [uid, setUid] = useState(localStorage.getItem("uid"));
   const [address, setAddress] = useState("");
-  const [copied, setCopied] = useState(false);
   const [checked, setChecked] = useState(false);
   const [checkNum, setCheckNum] = useState(false);
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
@@ -65,20 +89,6 @@ export default function AddCredit({ title }) {
 
     getAddress();
   }, []);
-
-  useEffect(() => {
-    if (copied) {
-      setTimeout(() => {
-        setCopied(false);
-      }, 5000);
-    }
-  }, [copied]);
-
-  const copyAddress = () => {
-    navigator.clipboard.writeText(address).then(() => {
-      setCopied(true);
-    });
-  };
 
   const updateTransaction = async () => {
     setLoading(true);
@@ -193,20 +203,7 @@ export default function AddCredit({ title }) {
                               </div>
 
                               <h4>Your Wallet Address</h4>
-                              <div className="creditAddressShow">
-                                <p>{address}</p>
-                                <div
-                                  onClick={copyAddress}
-                                  className="adress_copy_svg"
-                                >
-                                  <FaCopy
-                                    className={copied ? "copied_addresss" : ""}
-                                  />
-                                </div>
-                              </div>
-                              <p className="copied_addresss">
-                                {copied && "Copied"}
-                              </p>
+                              <WalletAddress address={address} />
 
                               <p>
                                 <strong>Note:</strong>Please note that it may

@@ -1,0 +1,37 @@
+.lost_one {
+  width: 100%;
+  height: 100vh;
+}
+
+.lost_two {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lost_two > h2 {
+  font-size: 7rem;
+  color: var(--color-blue-primary);
+}
+
+.lost_two > h4 {
+  color: var(--color-grey-dark);
+}
+
+.lost_two > p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 290px) {
+  .lost_two > h2 {
+    font-size: 3rem;
+  }
+
+  .lost_two > p {
+    font-size: 0.7rem;
+  }
+}

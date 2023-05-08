@@ -126,12 +126,12 @@
   }
 
   .onboarding_three {
-    flex-basis: 50%;
+    flex-basis: 55%;
   }
 
   .onboarding_three_form,
   .onboarding_four {
-    flex-basis: 50%;
+    flex-basis: 45%;
   }
 
   .onboarding_modal {

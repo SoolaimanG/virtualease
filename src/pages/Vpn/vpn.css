@@ -1,0 +1,135 @@
+.vpn_logs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.vpn_logs_two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  width: 100%;
+  gap: 2rem;
+}
+
+.vpn_logs_two > h4 {
+  font-size: 1.3rem;
+}
+
+.vpn_logs_three {
+  width: 100%;
+  height: fit-content;
+  background: var(--color-light-grey);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.vpn_logs_four {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.vpn_logs_four > p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-light-black);
+}
+
+.vpn_logs_four img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.vpn_logs_five {
+  width: 100%;
+  height: 100%;
+  background: var(--color-white);
+  border-radius: 10px;
+}
+
+.vpn_logs_six {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid var(--color-grey);
+}
+
+.vpn_logs_svg_div {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-blue-light);
+}
+
+.Pia {
+  background: #50b54e;
+}
+.Surfshark {
+  background: #178a9e;
+}
+.Express {
+  background: #c8252c;
+}
+
+.vpn_logs_svg_div svg {
+  font-size: 1.2rem;
+  color: var(--color-white);
+}
+
+.vpn_logs_svg > strong,
+.vpn_logs_svg p {
+  font-size: 0.9rem;
+}
+
+.vpn_logs_seven {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--color-light-grey);
+  height: 2rem;
+  padding: 0.3rem;
+  gap: 0.3rem;
+  border-radius: 5px;
+  color: var(--color-light-black);
+}
+
+.vpn_logs_seven > input {
+  all: unset;
+  width: 100%;
+  height: 100%;
+  font-size: 0.9rem;
+}
+
+.vpn_logs_eight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  height: 20rem;
+  overflow-y: scroll;
+}
+
+.vpn_logs_nine {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.vpn_logs_nine > img {
+  width: 2.5rem;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px var(--color-light-black) solid;
+}

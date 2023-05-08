@@ -1,4 +1,4 @@
-const Referals = () => {
+const Referals = ({ referals }) => {
   const time = new Date();
   const day = time.getDate();
   const month = time.getMonth() + 1;
@@ -6,7 +6,7 @@ const Referals = () => {
   return (
     <div className="comp_dashboard">
       <div className="refer_comp">
-        <h2>Total Referrals: 0</h2>
+        <h2>Total Referrals: {referals.length}</h2>
         <p>{day + "/" + month + "/" + year}</p>
       </div>
     </div>

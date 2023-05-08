@@ -754,3 +754,13 @@
     text-align: center;
   }
 }
+
+@media (max-width: 290px) {
+  .landing_home_one > h2 {
+    font-size: 1.3rem;
+  }
+
+  .landing_home_one p {
+    width: 85%;
+  }
+}

@@ -1,0 +1,478 @@
+.single_usa {
+  width: 100%;
+  height: 100%;
+}
+
+.single_usa_one {
+  border-bottom: 1.5px solid var(--color-light-black);
+  padding-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single_usa_two {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.single_usa_four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1.5px solid var(--color-light-black);
+  height: 3.5rem;
+  padding-bottom: 0.8rem 0.5rem;
+  cursor: pointer;
+  transition: all 500ms ease;
+  color: var(--color-black);
+}
+
+.single_usa_four:hover {
+  background: var(--color-light-grey);
+}
+
+.single_usa_four > pre {
+  font-size: 1.1rem;
+}
+
+.singleUsa_svg {
+  font-size: 1.5rem;
+  color: var(--color-blue-primary);
+}
+
+.noresult_found {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.single_two_two_two {
+  all: unset;
+  text-decoration: underline !important;
+  font-size: 0.9rem;
+  color: var(--color-blue-primary);
+  cursor: pointer;
+}
+
+.single_one_one_one > p {
+  color: var(--color-blue-primary);
+}
+
+.each-usa-offer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.usa-offer-eachone {
+  flex-basis: 50%;
+  font-size: 1.2rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.usa-offer-each-two {
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 0.5rem;
+  background: var(--color-light-grey);
+  border-radius: 10px;
+}
+
+.usa-offer-each-two > p {
+  color: var(--color-red);
+  letter-spacing: 2px;
+  cursor: none;
+}
+
+.usa-offer-each-three {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0rem 0.5rem;
+}
+
+.usa-offer-each-three > li {
+  font-size: 1rem;
+  list-style-type: disc;
+  cursor: pointer;
+}
+
+.usa-offer-each-four {
+  border: 1.3px solid var(--color-light-black);
+  height: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.usa-offer-each-five {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1rem;
+}
+
+.selective {
+  display: flex;
+  gap: 1rem;
+}
+
+.usa-offer-each-six {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.usa-offer-each-six > button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background: var(--color-blue-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.insufficient {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background: var(--color-red);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.selective > label {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.insuffient_one {
+  width: 20rem;
+  height: 25rem;
+  background: url("../assets/insufficient.svg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.insufient_icon {
+  width: 5rem;
+  height: 5rem;
+  background: #ffcccc;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+}
+
+.insufient_icon > svg {
+  font-size: 2rem;
+  color: var(--color-red);
+}
+
+.insuffient_one > h3 {
+  color: var(--color-white);
+}
+
+.insuffient_one > p {
+  color: var(--color-red);
+}
+
+.enough_icon {
+  width: 5rem;
+  height: 5rem;
+  background: var(--color-blue-primary);
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+}
+
+.enough_icon > svg {
+  font-size: 2rem;
+  color: var(--color-blue-secondary);
+}
+
+.enough > h3 {
+  color: var(--color-white);
+}
+
+.enough > p {
+  color: var(--color-white);
+}
+
+.addToMyAcct {
+  color: var(--color-blue-primary);
+  font-size: 0.9rem;
+  text-decoration: underline !important;
+}
+
+.enough {
+  width: 20rem;
+  height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: url("../assets/enough.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.enough-btn {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background: var(--color-blue-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.litecoinpayment {
+  margin-top: 0rem;
+}
+
+.explain-how-it-works {
+  flex-basis: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.explain-how-it-works > ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.explain-how-it-works ol > li {
+  list-style-type: decimal;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.opem_payment_one {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.opem_payment_one > h4 {
+  color: var(--color-red);
+}
+
+.opem_payment_one > p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-blue-secondary);
+}
+
+.each_social_num_one {
+  width: 100%;
+}
+
+.each_social_num_two {
+  width: 100%;
+}
+
+.each_social_num_three {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.each_social_num_four {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  height: 65vh;
+}
+
+.each_social_num_five {
+  flex-basis: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+}
+
+.each_social_num_num {
+  width: 100%;
+  height: 3rem;
+  background: var(--color-blue-very-light);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+
+.each_social_num_num > p {
+  letter-spacing: 2px;
+}
+
+.each_social_num_price {
+  background: var(--color-blue-very-light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.each_social_num_price_one {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  background: var(--color-blue-primary);
+  color: var(--color-white);
+}
+
+.each_social_num_price_two {
+  overflow-y: scroll;
+}
+
+.each_mobile_numbers {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.each_mobile_numbr_one {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.customNum_one {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.customNum_two {
+  display: flex;
+  flex-direction: column;
+}
+
+.customNum_three > h3 {
+  color: var(--color-blue-light);
+}
+
+.customNum_two > svg {
+  font-size: 10rem;
+  color: var(--color-blue-very-light);
+  transition: all 500ms;
+  animation: animate-settings 2s 0.5s infinite;
+}
+
+@keyframes animate-settings {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .each-usa-offer {
+    flex-direction: column;
+  }
+
+  .each_social_num_four {
+    flex-direction: column;
+    height: 85vh;
+  }
+}
+
+@media (max-width: 290px) {
+  .enough {
+    width: 15rem;
+  }
+
+  .insuffient_one {
+    width: 15rem;
+  }
+
+  .usa-offer-eachone {
+    flex-basis: 50%;
+    font-size: 1.2rem;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .usa-offer-each-two {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .usa-offer-each-two > p {
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  .usa-offer-each-three > li {
+    font-size: 0.9rem;
+  }
+
+  .usa-offer-each-four {
+    height: 2rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .usa-offer-each-five {
+    font-size: 0.8rem;
+  }
+
+  .selective {
+    gap: 0.8rem;
+  }
+
+  .usa-offer-each-six {
+    gap: 0.8rem;
+  }
+}

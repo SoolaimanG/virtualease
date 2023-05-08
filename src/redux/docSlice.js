@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  login: JSON.parse(localStorage.getItem("login")) || false,
+  login: JSON.parse(sessionStorage.getItem("login")) || false,
 };
 
 export const docSlice = createSlice({
@@ -9,10 +9,10 @@ export const docSlice = createSlice({
   initialState,
   reducers: {
     LoginFunc: (state) => {
-      state.login = localStorage.setItem("login", true) || true;
+      state.login = sessionStorage.setItem("login", true) || true;
     },
     LogoutFunc: (state) => {
-      state.login = localStorage.setItem("login", false) || false;
+      state.login = sessionStorage.setItem("login", false) || false;
     },
   },
 });

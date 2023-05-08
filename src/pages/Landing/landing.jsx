@@ -16,11 +16,14 @@ import { AnimatePresence } from "framer-motion";
 import { GetStarted } from "../../components/signInOptions";
 import { useSelector } from "react-redux";
 import { selectAll } from "../../redux/docSlice";
+import { Link } from "react-router-dom";
+import { LogoutFunc } from "../../redux/docSlice";
+import { useDispatch } from "react-redux";
 
 const Landing = () => {
   const year = new Date().getFullYear();
   const [loading, setLoading] = useState(true);
-  const login = useSelector(selectAll).login;
+  const dispatch = useDispatch();
   //Setting Syncronous loading.
   useEffect(() => {
     const randomSec = [
@@ -32,7 +35,7 @@ const Landing = () => {
       setLoading(false);
     }, randomSec[random]);
 
-    //sessionStorage.setItem("login", JSON.stringify(login));
+    dispatch(LogoutFunc());
 
     return () => {
       clearTimeout(timer);
@@ -193,9 +196,9 @@ const Landing = () => {
                       <h3>
                         {pricing.price} <small>{pricing.currency}</small>
                       </h3>
-                      <button className="pricing_btn btn-fill">
+                      <Link to={"/signin"} className="pricing_btn btn-fill">
                         Choose Plan
-                      </button>
+                      </Link>
                       <title>Features</title>
                       <ul>
                         {features.map((feature, i) => (

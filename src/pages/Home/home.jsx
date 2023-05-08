@@ -19,10 +19,10 @@ import Chance from "chance";
 import { v4 as uuidv4 } from "uuid";
 import { formatDistance } from "date-fns";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [hotNums, setHotNums] = useState([]);
 
   //Generating Random Phone Number
   const chance = new Chance();
@@ -30,9 +30,12 @@ const Home = () => {
   const docRef = doc(db, "HotNumbers", "SoolaimanG1");
   const [timeRemaining, setTimeRemaining] = useState(5 * 60 * 60);
   const [production, setProduction] = useState(false);
-  const [enableNotifications, setEnableNotifications] = useState(true);
+  const [liveNotification, setLiveNotification] = useState(true);
+  const uid = localStorage.getItem("uid");
+  const [referals, setReferrals] = useState([]);
 
   useEffect(() => {
+    //Making it run every 5mins
     const timer = setInterval(() => {
       const randomNumber = Math.floor(Math.random() * countryNumLength.length);
       const numberTypeRan = Math.floor(Math.random() * 2);
@@ -41,6 +44,8 @@ const Home = () => {
       const result = formatDistance(new Date(2023, 5, 1), new Date(), {
         addSuffix: true,
       });
+
+      //Algo for Generating random nums irrespective of their type
       const generatedNums = {
         id: uuidv4(),
         country: countryNames[randomNumber],
@@ -59,29 +64,56 @@ const Home = () => {
         createdOn: result,
       };
 
-      if (production) {
-        const upadteHotNumber = async () => {
-          const docSnap = await getDoc(docRef);
+      const upadteHotNumber = async () => {
+        const docSnap = await getDoc(docRef);
 
-          await updateDoc(docRef, {
-            HotNumbers: [...docSnap.data().HotNumbers, generatedNums],
-          }).then(() => {
-            if (enableNotifications) {
-              toast.success("New Number Added");
-            }
-          });
-        };
+        //Updating the db to a fresh version
+        await updateDoc(docRef, {
+          HotNumbers: [...docSnap.data().HotNumbers, generatedNums],
+        }).then(() => {
+          if (liveNotification) {
+            toast.success("New Number Added");
+          }
+        });
+      };
 
-        upadteHotNumber();
-      }
+      upadteHotNumber();
     }, timeRemaining);
 
     return () => {
       clearInterval(timer);
     };
   }, [timeRemaining]);
+
+  //Checking how many referral a user gets
+  useEffect(() => {
+    const getData = async () => {
+      const docRef = doc(db, "userInfo", uid);
+      const docSnap = await getDoc(docRef);
+
+      const getReferral = await getDoc(doc(db, "contestant", "SoolaimanG1"));
+      const filter = getReferral.data().referBy.filter((data) => {
+        return data.name === docSnap.data().displayName;
+      });
+
+      setLiveNotification(docSnap.data().liveNotification);
+
+      setReferrals(filter);
+    };
+
+    getData();
+  }, []);
   return (
-    <main className="home_one">
+    <motion.main
+      initial={{ scale: 0 }}
+      animate={{ rotate: 0, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+      className="home_one"
+    >
       <Toaster position="top-right" reverseOrder={false} />
       <div className="home_two">
         <div className="home_three">
@@ -92,7 +124,7 @@ const Home = () => {
           <div className="p-md home_five">
             <div className="home_five_one">
               <Balance />
-              <Referals />
+              <Referals referals={referals} />
               <History />
             </div>
             <div className="home_five_two">
@@ -101,7 +133,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 };
 

@@ -51,6 +51,8 @@ export default function SignInModal({ className, name }) {
       }
     });
 
+    localStorage.removeItem("uid");
+
     return () => {
       window.removeEventListener("resize", () => {
         return handleClose();
